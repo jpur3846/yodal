@@ -13,7 +13,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
-    <Container fluid style={{ height: '100vh', paddingLeft: '100px', paddingRight: '100px' }}>
+    <Container fluid className="px-sm-5 px-3" style={{ height: '100vh' }}>
       <NavBar />
       <Router>
           <Switch>

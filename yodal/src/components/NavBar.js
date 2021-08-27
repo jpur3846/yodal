@@ -11,11 +11,13 @@ const NavBar = ({}) => {
             </Col>
             <Col xs={6} lg={9}>
                 <Row className="d-flex justify-content-end align-items-center">
-                    <Col xs={4} lg={2} className="d-flex justify-content-end">
+                    <Col className="d-flex justify-content-end align-items-center">
+                        <div className="px-5">
                         Login
-                    </Col>
-                    <Col xs={4} lg={2} className="d-flex justify-content-end">
-                        <MainButton text='Sign Up' />
+                        </div>
+                        <div className="px-1">
+                            <MainButton text='Sign Up' />
+                        </div>
                     </Col>
                 </Row>
             </Col>
