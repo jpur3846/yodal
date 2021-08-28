@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import SignUpModal from "./components/SignUpModal";
 import Hero from "./views/Hero";
+import Post from "./components/Posts/Post";
 
 function App() {
   return (
@@ -17,10 +18,8 @@ function App() {
             <Route path="/">
               <Hero></Hero>
             </Route>
-            <Route path="/signup">
-            </Route>
-            <Route path="/home">
-            </Route>
+            <Route path="/signup"></Route>
+            <Route path="/home"></Route>
           </Switch>
         </Router>
       </Container>
