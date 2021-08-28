@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Play from "../../../components/Play";
 import Post from "./Post";
 import { db } from '../../../firebase'; 
 

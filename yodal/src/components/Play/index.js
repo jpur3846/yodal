@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import RecordButton from "./RecordButton/RecordButton";
+import RecordButton from "./RecordButton";
 
 const PlayerStyles = styled.div``;
 
 const Play = () => {
   const [audioURL, setAudioURL] = useState("");
 
-  const createAudioUrl = (blobURL) => {
+  const createAudioUrl = blobURL => {
     setAudioURL(blobURL);
   };
 
