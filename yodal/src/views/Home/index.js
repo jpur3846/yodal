@@ -11,9 +11,9 @@ function Home() {
     <>
       <Layout>
         <LeftSidebar></LeftSidebar>
-        <CreatePost></CreatePost>
-        {/* <Posts></Posts>
-        <RightSidebar></RightSidebar> */}
+        {/* <CreatePost></CreatePost> */}
+        <Posts></Posts>
+        <RightSidebar></RightSidebar>
       </Layout>
       <Player></Player>
     </>

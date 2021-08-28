@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import Play from "../../../components/Play";
 import Post from "./Post";
-import { db } from '../../../firebase'; 
 
 
 const PostsStyles = styled.div`
@@ -12,6 +11,7 @@ const PostsStyles = styled.div`
 `;
 
 function Posts() {
+
   return (
     <PostsStyles>
       <Post></Post>
