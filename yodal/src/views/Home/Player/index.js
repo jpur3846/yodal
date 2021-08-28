@@ -9,13 +9,13 @@ import {
   faPause,
 } from "@fortawesome/fontawesome-free-solid";
 import LinearProgress from "@material-ui/core/LinearProgress";
-import { withStyles } from "@material-ui/core/styles";
+import { duration, withStyles } from "@material-ui/core/styles";
 import testAudioSrc from "../../../static/audio/test.mp3";
 import useSound from "use-sound";
 import { useCurrentAudio, usePlaying } from "../../../context/AudioContext";
 
 const PlayerStyles = styled.div`
-  opacity: ${props => (props.isShown ? 1 : 0)} !important;
+  opacity: ${(props) => (props.isShown ? 1 : 0)} !important;
   display: grid;
   grid-template-columns: 4fr 1fr;
   grid-template-rows: 2fr 1fr;
@@ -102,12 +102,15 @@ function Player({ audioURL }) {
 
   const { currentAudioURL, setCurrentAudioURL } = useCurrentAudio();
   const { isPlaying, setIsPlaying } = usePlaying();
+  const [playbackRate, setPlaybackRate] = useState(1);
+  const [progressIndicator, setProgressIndicator] = useState(0);
 
   const handlePlay = () => {
     setIsPlaying(!isPlaying);
     if (!isPlaying) {
-      play();
+      play({ playbackRate: playbackRate });
       setIsPlaying(true);
+      setProgressIndicator(progressIndicator + 10);
     } else {
       pause();
       setIsPlaying(false);
@@ -117,7 +120,13 @@ function Player({ audioURL }) {
   return (
     <PlayerStyles isShown={currentAudioURL}>
       <div className="audio-player">
-        <FontAwesomeIcon icon={faBackward} id="backward" />
+        <FontAwesomeIcon
+          icon={faBackward}
+          id="backward"
+          onClick={() => {
+            setPlaybackRate(playbackRate - 0.5);
+          }}
+        />
         <FontAwesomeIcon
           size={"lg"}
           icon={!isPlaying ? faPlay : faPause}
@@ -125,7 +134,13 @@ function Player({ audioURL }) {
           onClick={handlePlay}
           id="play"
         />
-        <FontAwesomeIcon icon={faForward} id="forward" />
+        <FontAwesomeIcon
+          icon={faForward}
+          id="forward"
+          onClick={() => {
+            setPlaybackRate(playbackRate + 0.5);
+          }}
+        />
       </div>
       <div className="title">
         <img src={avatar}></img>
@@ -136,7 +151,7 @@ function Player({ audioURL }) {
         </p>
       </div>
       <div class="progress-bar-div">
-        <StyledLinearProgress variant="determinate" value={45} />
+        <StyledLinearProgress variant="determinate" value={progressIndicator} />
       </div>
     </PlayerStyles>
   );
