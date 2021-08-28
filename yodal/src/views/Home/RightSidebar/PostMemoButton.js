@@ -28,6 +28,12 @@ const PostMemoButton = styled.button`
   border-radius: 10px;
   color: #ffffff;
   background: #134169;
+
+  font-family: SF Pro Display;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 150%;
 `;
 
 export default PostMemoButton;

@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import CardComponent from "./CardComponent";
 import PostMemoButton from "./PostMemoButton";
+import TitleLabel from "./TitleLabel";
 
 const RightSidebarStyles = styled.div`
   grid-column: 10/13;
@@ -10,6 +11,7 @@ const RightSidebarStyles = styled.div`
 function RightSidebar() {
   return (
     <RightSidebarStyles>
+      <TitleLabel></TitleLabel>
       <CardComponent
         type={"Quote of the week"}
         content={
