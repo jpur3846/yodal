@@ -122,7 +122,7 @@ function Player(audioURL) {
         setProgressIndicator(progressIndicator + 1);
       }
     }, 100);
-  })
+  });
 
   return (
     <PlayerStyles isShown={currentAudioURL}>
@@ -145,7 +145,7 @@ function Player(audioURL) {
           icon={faForward}
           id="forward"
           onClick={() => {
-            setProgressIndicator(progressIndicator + 2);
+            setPlaybackRate(playbackRate + 0.5);
           }}
         />
       </div>
