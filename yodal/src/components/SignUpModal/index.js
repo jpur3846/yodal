@@ -10,7 +10,7 @@ import avatar4 from "../../static/imgs/avatar4.png";
 import AvatarSelect from "./AvatarSelect";
 
 const SignUpModalStyles = styled.div`
-  display: ${props => (props.show ? "flex" : "none")};
+  display: ${(props) => (props.show ? "flex" : "none")};
 
   .modal-outer {
     position: absolute;
@@ -93,9 +93,9 @@ const PageTwo = ({ setPage }) => {
         <p className="sep">Let's get you set up with a simple profile!</p>
         <hr className="sep"></hr>
         <h5>First Name</h5>
-        <InputStyles className="sep" />
+        <InputStyles className="sep" name="fName" />
         <h5>Last Name</h5>
-        <InputStyles />
+        <InputStyles name="lName" />
         <p className="disclaimer-text">
           Your personal information will not be shared with anyone. You can
           choose to remain anonymous when posting or replying to threads
@@ -124,7 +124,7 @@ const PageThree = ({ setPage }) => {
         </div>
         <h5>Add a short bio</h5>
         <InputStyles className="sep" />
-        <Link to="/home">
+        <Link to={{ pathname: "/home" }}>
           <ButtonLarge>Finish!</ButtonLarge>
         </Link>
       </div>
