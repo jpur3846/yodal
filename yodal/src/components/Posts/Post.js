@@ -4,7 +4,7 @@ import RecordButton from "./RecordButton/RecordButton";
 const Post = () => {
   const [audioURL, setAudioURL] = useState("");
 
-  const createAudioUrl = blobURL => {
+  const createAudioUrl = (blobURL) => {
     setAudioURL(blobURL);
   };
 
