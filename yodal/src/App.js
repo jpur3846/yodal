@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <NavBar />
-      <Container fluid className="px-sm-5 px-3" style={{ height: "100vh" }}>
+      <Container fluid style={{ height: "100vh" }}>
         <Router>
           <Switch>
             <Route path="/">
