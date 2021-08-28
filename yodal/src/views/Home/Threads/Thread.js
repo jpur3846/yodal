@@ -11,6 +11,7 @@ import bar_2 from "../../../static/imgs/1_24.png";
 import bar_3 from "../../../static/imgs/0_00.png";
 import bar_4 from "../../../static/imgs/bar_4.png";
 import { Link } from "react-router-dom";
+import Pill from "./Pill.js";
 // import db from "../../../firebase";
 
 import { PostStyles, Content, ProfilePhoto, Title, Arrow } from "./style";
@@ -52,6 +53,7 @@ function Thread() {
             <ProfilePhoto src={avatar2}></ProfilePhoto>
             <h4>Jennifer</h4>
             <h5>posted a response • 8 minutes ago</h5>
+            <Pill title="Psychologist"></Pill>
             <button className="play">
               <PlayButton></PlayButton>
             </button>
