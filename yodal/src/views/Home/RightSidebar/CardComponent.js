@@ -9,8 +9,8 @@ const CardComponentStyles = styled.div`
 
   position: static;
   width: 240px;
-  height: 153px;
-  left: calc(50% - 240px / 2 - 0.02px);
+  height: 177px;
+  left: calc(50% - 240px / 2);
   top: 42px;
 
   background: #ffffff;
@@ -18,9 +18,11 @@ const CardComponentStyles = styled.div`
     0px 7px 15px 3px rgba(19, 65, 105, 0.04);
   border-radius: 10px;
 
+  /* Inside Auto Layout */
   flex: none;
   order: 1;
   flex-grow: 0;
+  margin: 10px 0px;
 `;
 
 const Quote = styled.p`
