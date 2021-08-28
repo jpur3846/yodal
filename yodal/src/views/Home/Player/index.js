@@ -6,74 +6,12 @@ import {
   faBackward,
   faForward,
   faPlay,
+  faPause,
 } from "@fortawesome/fontawesome-free-solid";
 import LinearProgress from "@material-ui/core/LinearProgress";
+import { withStyles } from "@material-ui/core/styles";
 
 const PlayerStyles = styled.div`
-  /* justify-content: center;
-  
-  .player-container {
-    height: 10rem;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100vw;
-    display: flex;
-    padding-left: 8.6rem;
-    justify-content: space-between;
-  }
-
-
-  .player-container {
-    box-shadow: 0px -4px 63px -22px rgba(19, 65, 105, 0.17);
-  }
-
-  .inner-container {
-    width: auto;
-    display: flex;
-    padding-top: 22px;
-    justify-content: space-between;
-  }
-  
-  .audio-player {
-    width: auto;
-    display: flex;
-    justify-content: flex-end;
-    align-self: center;
-    align-items: center;
-    margin-right: 8.6rem;
-  }
-  
-  .profile {
-    display: flex;
-    height: 50%;
-    justify-content: flex-start;
-    align-items: center;
-  }
-
-  h3 {
-    font-weight: bold;
-    padding-left: 3.3rem;
-    padding-right: 3.3rem;
-  }
-
-  #forward, #play {
-    margin-left: 28px;
-  } 
-  
-  #play {
-    font-size: 36px;
-  }
-
-  #forward, #backward {
-    font-size: 20px;
-  }
-
-  .progress-bar {
-    width: 10px;
-  }
-   */
-
   display: grid;
   grid-template-columns: 4fr 1fr;
   grid-template-rows: 2fr 1fr;
@@ -85,23 +23,40 @@ const PlayerStyles = styled.div`
   left: 0;
   background: white;
 
+  #forward, #play {
+    margin-left: 30px;
+  }
+
+  #play {
+    font-size: 30px;
+    color: var(--secondary);
+  }
+
+  #forward, #backward {
+    font-size: 15px;
+    color: var(--secondary);
+  }
+
   .title {
     grid-column: 1/2;
     grid-row: 1/2;
-    background: red;
-
+    padding-left: 8.6rem;
     display: flex;
     justify-content: flex-start;
     align-items: center;
 
-    h3,
-    p {
-      padding-left: 8.6rem;
-    }
     img {
       height: 36px;
       width: auto;
     }
+  }
+
+  h3, p {
+    margin-left: 3.2rem;
+  }
+
+  h3 {
+    font-weight: bold;
   }
 
   .audio-player {
@@ -114,7 +69,20 @@ const PlayerStyles = styled.div`
       margin: 0 1rem;
     }
   }
+
+  .progress-bar-div {
+    padding-left: 8.6rem;
+    padding-right: 8.6rem;
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
 `;
+
+const StyledLinearProgress = withStyles({
+  barColorPrimary: {
+    backgroundColor: "#134169"
+  }
+})(LinearProgress);
 
 function Player() {
   const audioEl = useRef(null);
@@ -123,12 +91,11 @@ function Player() {
   return (
     <PlayerStyles>
       <div className="audio-player">
-        <audio ref={audioEl} src={""} id="player" />
         <FontAwesomeIcon icon={faBackward} id="backward" />
         <FontAwesomeIcon size={"lg"} icon={faPlay} id="play" />
+        {/* <FontAwesomeIcon size={"lg"} icon={faPause} id="play" /> */}
         <FontAwesomeIcon icon={faForward} id="forward" />
       </div>
-
       <div className="title">
         <img src={avatar}></img>
         <h3>Wilson Hou</h3>
@@ -137,24 +104,9 @@ function Player() {
           makes easier to ...
         </p>
       </div>
-
-      {/* <div className="player-container">
-        <div className="inner-container">
-          <div className="profile">
-            <img src={avatar}></img>
-            <h3>Wilson Hou</h3>
-            <p>
-              I found networking was the best way to landing my first
-              internship. It makes easier to ...
-            </p>
-          </div>
-          <div className="progress-bar">
-            <LinearProgress variant="determinate" value={100} />
-          </div>
-        </div>
-        <div className="audio-player">
-        </div>
-      </div> */}
+      <div class="progress-bar-div">
+        <StyledLinearProgress variant="determinate" value={45} />
+      </div>
     </PlayerStyles>
   );
 }

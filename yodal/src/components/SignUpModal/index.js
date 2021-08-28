@@ -26,6 +26,7 @@ const SignUpModalStyles = styled.div`
   .modal {
     margin-top: 5.1rem;
     padding: 30px;
+    margin-top: 12rem;
     height: 40.8rem;
     width: 43.6rem;
     background-color: white;
