@@ -7,6 +7,7 @@ export const ButtonLarge = styled.button`
   border-radius: 8px;
   border: none;
   color: white;
+  font-size: var(--h4);
   font-weight: 700;
   line-height: 1.25;
 

@@ -5,6 +5,7 @@ import Grid from "./Grid";
 const LayoutStyles = styled.div`
   position: relative;
   height: calc(100vh - 80px);
+  margin-top: calc(80px + 35px);
 
   .inner {
     width: var(--maxWidth);

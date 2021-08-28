@@ -3,11 +3,18 @@ import { ButtonMedium } from "../shared/Button";
 import Logo from "./Logo";
 
 const NavBarStyles = styled.nav`
+  position: fixed;
+  top: 0;
+  width: 100vw;
   min-height: 8rem;
   padding: 2rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 10;
+  background: white;
+
+  box-shadow: var(--botShadow);
 
   .container {
     display: flex;

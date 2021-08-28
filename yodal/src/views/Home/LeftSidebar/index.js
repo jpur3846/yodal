@@ -9,6 +9,7 @@ const LeftSidebarStyles = styled.div`
   border-radius: var(--normalRadius);
 
   padding: 0.4rem 0;
+  height: min-content;
 `;
 
 function LeftSidebar() {
