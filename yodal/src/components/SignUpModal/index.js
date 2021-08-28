@@ -71,7 +71,7 @@ const SignUpModalStyles = styled.div`
   }
 `;
 
-const PageOne = ({ setPage }) => {
+const PageOne = ({ setPage, userDetails, setUserDetails }) => {
   return (
     <div className="modal-outer">
       <div className="modal">
@@ -84,9 +84,20 @@ const PageOne = ({ setPage }) => {
         </p>
         <hr className="sep"></hr>
         <h5>Email Address</h5>
-        <InputStyles className="sep" />
+        <InputStyles
+          className="sep"
+          onChange={e =>
+            setUserDetails({ ...userDetails, emailAddress: e.target.value })
+          }
+        />
         <h5>Password</h5>
-        <InputStyles className="sep" type="password" />
+        <InputStyles
+          className="sep"
+          type="password"
+          onChange={e =>
+            setUserDetails({ ...userDetails, password: e.target.value })
+          }
+        />
         <ButtonLarge onClick={() => setPage("PageTwo")}>
           Create Account
         </ButtonLarge>
@@ -148,14 +159,19 @@ const PageThree = ({ setPage }) => {
 
 const SignUpModal = ({ show = false }) => {
   const [page, setPage] = useState("PageOne");
+  const [userDetails, setUserDetails] = useState({});
   return (
     <SignUpModalStyles show={show}>
       {page === "PageOne" ? (
-        <PageOne setPage={setPage} />
+        <PageOne
+          setPage={setPage}
+          userDetails={userDetails}
+          setUserDetails={setUserDetails}
+        />
       ) : page === "PageTwo" ? (
         <PageTwo setPage={setPage} />
       ) : (
-        <PageThree setPage={setPage} />
+        <PageThree setPage={setPage} userDetails={userDetails} />
       )}
     </SignUpModalStyles>
   );
