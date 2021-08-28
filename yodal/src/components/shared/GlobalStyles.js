@@ -70,7 +70,7 @@ const GlobalStyle = createGlobalStyle`
     --headingFont: "SF Pro Display", sans-serif;
     --bodyFont: "SF Pro Text", sans-serif;
 
-    --bodyFontSize: 1.6rem;
+    --bodyFontSize: 1.2rem;
 
     --h1: 3.6rem;
     --h2: 3.2rem;
@@ -85,6 +85,7 @@ const GlobalStyle = createGlobalStyle`
 
     // Configs
     --maxWidth: 1024px;
+    --normalRadius: 10px;
 
     // Transitions
     --cubeTransition: all 0.15s cubic-bezier(1,.25,0,.75) 0s;

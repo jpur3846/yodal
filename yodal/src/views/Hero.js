@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { ButtonLarge } from "../components/shared/Button";
 import SignUpModal from "../components/SignUpModal";
 import HeroImage from "../static/imgs/hero.png";
-import { Link } from 'react-router-dom';
 
 const HeroStyles = styled.section`
   height: calc(100vh - 80px);
@@ -57,7 +56,7 @@ function Hero() {
             <br /> Start <span class="highlight">Yodalling.</span>
           </h1>
           <ButtonLarge onClick={() => setShowSignUpModal(true)}>
-              Sign Up Today
+            Sign Up Today
           </ButtonLarge>
         </div>
 
