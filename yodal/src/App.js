@@ -1,9 +1,7 @@
-import "./App.css";
-import "./index.css";
 import NavBar from "./components/Navbar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Hero from "./views/Hero";
-import Post from "./components/Posts/Post";
+import Home from "./views/Home";
 
 function App() {
   return (
@@ -16,7 +14,7 @@ function App() {
           </Route>
           <Route exact path="/signup"></Route>
           <Route exact path="/home">
-            <Post></Post>
+            <Home></Home>
           </Route>
         </Switch>
       </Router>
