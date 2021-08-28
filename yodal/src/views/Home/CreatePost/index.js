@@ -3,7 +3,7 @@ import Divider from "../../../components/shared/Divider";
 import RecordButton from "../../../components/shared/RecordButton";
 import PauseButton from "../../../components/shared/PauseButton";
 import PlayButton from "../../../components/shared/PlayButton";
-import avatar from "../../../static/imgs/userAvatar.png";
+import avatar1 from "../../../static/imgs/avatar1.png";
 import styled from "styled-components";
 import { ButtonLarge, ButtonMedium } from "../../../components/shared/Button";
 import {
@@ -49,8 +49,8 @@ function CreatePost({ post = {} }) {
     <CreatePostStyles>
       <PostStyles>
         <Title>
-          <ProfilePhoto src={avatar}></ProfilePhoto>
-          <h5>Wilson Hou</h5>
+          <ProfilePhoto src={avatar1}></ProfilePhoto>
+          <h5>You</h5>
           <Pair className="play">
             <p className="play">Press here to record -></p>
             <button onClick={() => {setClicked(!clicked)}} >
