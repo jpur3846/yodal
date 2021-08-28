@@ -154,7 +154,11 @@ const PageThree = ({ setPage, userDetails }) => {
         <h5>Add a short bio</h5>
         <InputStyles className="sep" />
         <Link to={{ pathname: "/home" }}>
-          <ButtonLarge onClick={() => signup("wilshou@gmail.com", "password")}>
+          <ButtonLarge
+            onClick={() =>
+              signup(userDetails.emailAddress, userDetails.password)
+            }
+          >
             Finish!
           </ButtonLarge>
         </Link>

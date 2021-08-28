@@ -103,7 +103,7 @@ function CreatePost({ post = {}, setShow }) {
 
   const handleButtonPost = () => {
     addPost({
-      name: "Raghav Ramanathan",
+      name: "You",
       message: description,
       audio_url: 0,
       profile_url: 0,
