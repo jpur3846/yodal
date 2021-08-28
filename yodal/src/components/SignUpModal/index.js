@@ -25,9 +25,8 @@ const SignUpModalStyles = styled.div`
   }
 
   .modal {
-    margin-top: 5.1rem;
     padding: 30px;
-    margin-top: 12rem;
+    margin-top: 20rem;
     height: 40.8rem;
     width: 43.6rem;
     background-color: white;
@@ -35,7 +34,7 @@ const SignUpModalStyles = styled.div`
   }
 
   .sep {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
   }
 
   h4,
@@ -45,8 +44,13 @@ const SignUpModalStyles = styled.div`
   }
 
   h5 {
+    font-size: 12px;
     margin-bottom: 1.2rem;
     font-weight: bold;
+  }
+
+  p {
+    font-size: 12px;
   }
 
   .disclaimer-text {
@@ -60,6 +64,10 @@ const SignUpModalStyles = styled.div`
   .avatars {
     display: flex;
     justify-content: space-between;
+  }
+
+  .disclaimer-text {
+    font-size: 11px;
   }
 `;
 

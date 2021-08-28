@@ -2,13 +2,13 @@ import styled from "styled-components";
 
 export const ButtonLarge = styled.button`
   padding: 1.5rem 2rem;
-  background: ${props =>
+  background: ${(props) =>
     props.backgroundColor ? props.backgroundColor : "#134169"};
-  color: ${props => (props.color ? props.color : "#fff")};
+  color: ${(props) => (props.color ? props.color : "#fff")};
   border-radius: 8px;
   border: none;
   color: white;
-  font-size: var(--h4);
+  font-size: var(--body);
   font-weight: 700;
   line-height: 1.25;
 
@@ -25,7 +25,7 @@ export const ButtonLarge = styled.button`
 export const ButtonMedium = styled.button`
   min-height: 3.2rem;
   padding: 0.7rem 1rem;
-  background: ${props =>
+  background: ${(props) =>
     props.backgroundColor ? props.backgroundColor : "#134169"};
   border-radius: 8px;
   border: none;

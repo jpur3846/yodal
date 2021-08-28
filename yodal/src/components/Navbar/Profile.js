@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import profile_photo from "../../static/imgs/profile_photo.png";
+import profile_photo from "../../static/imgs/avatar1.png";
 
 const LogoStyles = styled.h1`
   display: flex;

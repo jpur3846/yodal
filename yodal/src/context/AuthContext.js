@@ -16,7 +16,7 @@ export const useAuth = () => {
 export const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState({
     isAuthenticated: true,
-    user: { name: "Wilson" },
+    user: { name: "Raghav" },
   });
 
   return (

@@ -8,6 +8,7 @@ import Thread from "./Thread";
 import CreatePost from "../CreatePost";
 import { SectionProvider } from "../../../context/SectionContext";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const ThreadsStyle = styled.div`
   grid-column: 3/10;
