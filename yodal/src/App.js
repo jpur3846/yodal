@@ -4,6 +4,7 @@ import NavBar from "./components/Navbar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Hero from "./views/Hero";
+import Post from "./components/Posts/Post";
 
 function App() {
   return (
