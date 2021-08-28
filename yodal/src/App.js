@@ -8,14 +8,16 @@ import Post from "./components/Posts/Post";
 function App() {
   return (
     <>
-      <NavBar />
       <Router>
+        <NavBar />
         <Switch>
-          <Route path="/">
+          <Route exact path="/">
             <Hero></Hero>
           </Route>
-          <Route path="/signup"></Route>
-          <Route path="/home"></Route>
+          <Route exact path="/signup"></Route>
+          <Route exact path="/home">
+            <Post></Post>
+          </Route>
         </Switch>
       </Router>
     </>

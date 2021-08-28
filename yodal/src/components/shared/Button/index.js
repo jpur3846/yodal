@@ -12,6 +12,7 @@ export const ButtonLarge = styled.button`
 
   cursor: pointer;
   transition: var(--cubeTransition);
+  box-shadow: var(--buttonShadow);
 
   &:hover {
     background: var(--primary);
@@ -32,6 +33,7 @@ export const ButtonMedium = styled.button`
 
   cursor: pointer;
   transition: var(--cubeTransition);
+  box-shadow: var(--buttonShadow);
 
   &:hover {
     background: var(--primary);

@@ -34,8 +34,8 @@ const RecordButton = ({ setAudioURL }) => {
   };
 
   return (
-    <div className="App">
-      <header className="App-header">
+    <div>
+      <header>
         <button onClick={startRecording} disabled={recordState.isRecording}>
           Record
         </button>
