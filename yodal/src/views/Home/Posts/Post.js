@@ -8,6 +8,12 @@ import Message from "../../../components/shared/Message";
 import PlayButton from "../../../components/shared/PlayButton";
 import avatar from "../../../static/imgs/userAvatar.png";
 
+import avatarOne from "../../../static/imgs/avatar1.png";
+import avatarTwo from "../../../static/imgs/avatar2.png";
+import avatarThree from "../../../static/imgs/avatar3.png";
+import avatarFour from "../../../static/imgs/avatar4.png";
+import { useCurrentAudio, usePlaying } from "../../../context/AudioContext";
+
 import {
   PostStyles,
   Content,
@@ -16,7 +22,8 @@ import {
   Socials,
   Title,
 } from "./style";
-import { useCurrentAudio, usePlaying } from "../../../context/AudioContext";
+
+const avatars = [avatarOne, avatarTwo, avatarThree, avatarFour];
 
 function Post({ post }) {
   const [play] = useSound(testAudio, { volume: 0.5 });
@@ -25,7 +32,7 @@ function Post({ post }) {
   return (
     <PostStyles>
       <Title>
-        <ProfilePhoto src={avatar}></ProfilePhoto>
+        <ProfilePhoto src={avatars[post.profile_url]}></ProfilePhoto>
         <h4>{post.name}</h4>
         <h5>posted a memo • {post.time_since_posted}</h5>
         <button
