@@ -7,12 +7,14 @@ import RightSidebar from "./RightSidebar";
 
 function Home() {
   return (
-    <Layout>
-      <LeftSidebar></LeftSidebar>
-      <Posts></Posts>
-      <RightSidebar></RightSidebar>
+    <>
+      <Layout>
+        <LeftSidebar></LeftSidebar>
+        <Posts></Posts>
+        <RightSidebar></RightSidebar>
+      </Layout>
       <Player></Player>
-    </Layout>
+    </>
   );
 }
 

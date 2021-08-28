@@ -3,6 +3,7 @@ import { ButtonMedium } from "../shared/Button";
 import Logo from "./Logo";
 import Profile_Photo from "./Profile";
 import Arrow from "./Arrow";
+import { useLocation } from "react-router-dom";
 
 const NavBarStyles = styled.nav`
   position: fixed;
@@ -52,6 +53,7 @@ const NavBarStyles = styled.nav`
 `;
 
 const NavBar = ({ signedIn }) => {
+  const location = useLocation();
   if (signedIn) {
     return (
       <NavBarStyles>
@@ -72,7 +74,7 @@ const NavBar = ({ signedIn }) => {
           <Logo></Logo>
           <div className="profile">
             <Profile_Photo></Profile_Photo>
-            <p>Wilson Hou</p>
+            <p>{location.state}</p>
             <Arrow></Arrow>
           </div>
         </div>
