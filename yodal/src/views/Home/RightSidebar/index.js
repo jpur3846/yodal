@@ -6,6 +6,7 @@ import TitleLabel from "./TitleLabel";
 
 const RightSidebarStyles = styled.div`
   grid-column: 10/13;
+  grid-row-start: 1;
 
   .titleLabel {
     padding-bottom: 20px;

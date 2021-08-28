@@ -1,65 +1,84 @@
-import React from "react";
-import styled from "styled-components";
-import { Title, ProfilePhoto, Content, Controls } from "./style";
-import PlayButton from "../../../components/shared/PlayButton";
-import RecordButton from "../../../components/Play/RecordButton";
-import profilepic from "../../../static/imgs/profile_photo.png";
+import React, { useState, useEffect } from "react";
 import Divider from "../../../components/shared/Divider";
+import RecordButton from "../../../components/shared/RecordButton";
+import PauseButton from "../../../components/shared/PauseButton";
+import avatar from "../../../static/imgs/userAvatar.png";
+import styled from "styled-components";
 import { ButtonLarge, ButtonMedium } from "../../../components/shared/Button";
+import {
+  PostStyles,
+  Content,
+  Pair,
+  ProfilePhoto,
+  Socials,
+  Title,
+} from "./style";
 
 const CreatePostStyles = styled.div`
-  grid-column: 3/13;
+  grid-column: 3/10;
+  grid-row: 1/2;
 
-  flex-direction: column;
-  padding: 1.5rem;
-
-  box-shadow: var(--cardShadow);
-  border-radius: var(--normalRadius);
-
-  height: 50rem;
-
-  background: #ffffff;
+  h5 {
+    font-weight: bold;
+    color: var(--secondary);
+  }
 `;
 
-function CreatePost() {
-  const [recording, setRecording] = React.useState(false);
+// Converts to seconds
+function convert(value) {
+  if ((value % 60 < 10)) {
+    return Math.floor(value / 60) + ":" + "0" + value % 60
+  }
+  return Math.floor(value / 60) + ":" + (value % 60 ? value % 60 : '00')
+}
 
-  const toggleRecording = () => setRecording(!recording);
+function CreatePost({ post = {} }) {
+  const [clicked, setClicked] = useState(false);
+  const [timer, setTimer] = useState(0);
+
+  useEffect(() => {
+    if (clicked) {
+      setTimeout(() => {
+        setTimer(timer + 1);
+      }, 1000);
+    }
+  }, [timer, clicked]);
 
   return (
     <CreatePostStyles>
-      <RecordButton></RecordButton>
-      <Title>
-        <ProfilePhoto src={profilepic}></ProfilePhoto>
-        <h4>Wilson Hou</h4>
-        <h5>Press here to record -{">"}</h5>
-        <button
-          className="play"
-          onClick={() => {
-            toggleRecording();
-            console.log(recording);
-          }}
-        >
-          <PlayButton></PlayButton>
-        </button>
-      </Title>
-      <Divider></Divider>
-      <Content>
-        <h5>Preview your voice message</h5>
-        <p>
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec justo
-          libero, lacinia ut aliquam eget, suscipit ut ligula. Mauris ac odio et
-          lorem ultrices facilisis. Nullam et dui nunc..."
-        </p>
-      </Content>
-      <Controls>
-        <input type="checkbox"></input>
-        <p>Post Anonymously</p>
-        <ButtonLarge color="var(--secondary)" backgroundColor="#ffffff">
-          Cancel
-        </ButtonLarge>
-        <ButtonLarge>Post</ButtonLarge>
-      </Controls>
+      <PostStyles>
+        <Title>
+          <ProfilePhoto src={avatar}></ProfilePhoto>
+          <h5>Wilson Hou</h5>
+          <Pair className="play">
+            <p className="play">Press here to record -></p>
+            <button onClick={() => {setClicked(!clicked)}} >
+              { !clicked ? 
+              <RecordButton></RecordButton>
+              :
+              <PauseButton></PauseButton>
+              }
+            </button>
+          </Pair>
+        </Title>
+        <Title>
+          <Pair className="seconds">
+            { convert(timer) }
+          </Pair>
+        </Title>
+        <Content>{post.message}</Content>
+        <Divider></Divider>
+        <Title>
+          <Pair className="second">
+            <input type="checkbox" />
+            <p>Post anonymously</p>
+          </Pair>
+          <Pair className="play">
+            <ButtonMedium className="Button">Cancel</ButtonMedium>
+            <ButtonMedium className="Buttonpost">Post</ButtonMedium>
+          </Pair>
+        </Title>
+      </PostStyles>
     </CreatePostStyles>
   );
 }

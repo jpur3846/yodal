@@ -14,7 +14,7 @@ function Home() {
     <SectionProvider>
       <Layout>
         <LeftSidebar></LeftSidebar>
-        {/* <CreatePost></CreatePost> */}
+        <CreatePost></CreatePost>
         {/* <Threads></Threads> */}
         {/* <RecordButton></RecordButton> */}
         <Posts></Posts>
