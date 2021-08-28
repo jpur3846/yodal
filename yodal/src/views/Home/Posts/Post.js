@@ -4,6 +4,7 @@ import Heart from "../../../components/shared/Heart";
 import Message from "../../../components/shared/Message";
 import PlayButton from "../../../components/shared/PlayButton";
 import avatar from "../../../static/imgs/userAvatar.png";
+// import db from "../../../firebase";
 
 import {
   PostStyles,

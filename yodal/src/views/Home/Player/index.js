@@ -88,7 +88,6 @@ const PlayerStyles = styled.div`
   .title {
     grid-column: 1/2;
     grid-row: 1/2;
-    background: red;
 
     display: flex;
     justify-content: flex-start;
