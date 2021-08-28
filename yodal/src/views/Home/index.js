@@ -17,8 +17,9 @@ function Home() {
         {/* <CreatePost></CreatePost> */}
         {/* <Threads></Threads> */}
         {/* <RecordButton></RecordButton> */}
+        {/* <Threads></Threads> */}
         <Posts></Posts>
-        <RightSidebar></RightSidebar>
+        <RightSidebar text="Post a Memo"></RightSidebar>
       </Layout>
       <Player></Player>
     </SectionProvider>

@@ -1,21 +1,21 @@
 [
   {
     "name": "You",
-    "message": "I'm going to be a little late for the party.",
+    "message": "Just showing the SYNCS team how recording works!",
     "audio_url": 1,
     "profile_url": 0,
-    "likes": 52,
-    "comments": "3",
-    "time_since_posted": "10 minutes ago"
+    "likes": 0,
+    "comments": "0",
+    "time_since_posted": "Less than a minute ago"
   },
 
   {
     "name": "You",
-    "message": "I'm going to be a little late for the party.",
-    "audio_url": 1,
+    "message": "The questions around the \"meaning of life\" are so overrated. I still discuss it though.",
+    "audio_url": 3,
     "profile_url": 0,
-    "likes": 420,
-    "comments": "96",
-    "time_since_posted": "10 minutes ago"
+    "likes": 70,
+    "comments": "8",
+    "time_since_posted": "2 days ago"
   }
 ]

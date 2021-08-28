@@ -5,6 +5,7 @@ import Home from "./views/Home";
 import { AudioProvider } from "./context/AudioContext";
 import { AuthProvider } from "./context/AuthContext";
 import PrivateRoute from "./components/shared/PrivateRoute";
+import Threads from "./views/Home/Threads";
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
               <Hero></Hero>
             </Route>
             <Route exact path="/signup"></Route>
+            <Route exact path="/threads">
+              <Threads></Threads>
+            </Route>
             <PrivateRoute exact path="/home" component={Home}></PrivateRoute>
           </Switch>
         </Router>

@@ -13,6 +13,7 @@ import avatarTwo from "../../../static/imgs/avatar2.png";
 import avatarThree from "../../../static/imgs/avatar3.png";
 import avatarFour from "../../../static/imgs/avatar4.png";
 import { useCurrentAudio, usePlaying } from "../../../context/AudioContext";
+import { Link } from "react-router-dom";
 
 import {
   PostStyles,
@@ -44,22 +45,24 @@ function Post({ post }) {
           <PlayButton></PlayButton>
         </button>
       </Title>
-      <Content>{post.message}</Content>
-      <Divider></Divider>
-      <Socials>
-        <Pair>
-          <button>
-            <Heart></Heart>
-          </button>
-          <p>{post.likes}</p>
-        </Pair>
-        <Pair className="second">
-          <button>
-            <Message></Message>
-          </button>
-          <p>{post.comments}</p>
-        </Pair>
-      </Socials>
+      <Link to="/threads">
+        <Content>{post.message}</Content>
+        <Divider></Divider>
+        <Socials>
+          <Pair>
+            <button>
+              <Heart></Heart>
+            </button>
+            <p>{post.likes}</p>
+          </Pair>
+          <Pair className="second">
+            <button>
+              <Message></Message>
+            </button>
+            <p>{post.comments}</p>
+          </Pair>
+        </Socials>
+      </Link>
     </PostStyles>
   );
 }

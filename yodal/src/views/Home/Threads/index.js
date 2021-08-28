@@ -1,6 +1,13 @@
 import React from "react";
-import styled from "styled-components";
+import Layout from "../../../components/shared/Layout";
+import LeftSidebar from "../LeftSidebar";
+import Player from "../Player";
+import Posts from "../Posts";
+import RightSidebar from "../RightSidebar";
 import Thread from "./Thread";
+import CreatePost from "../CreatePost";
+import { SectionProvider } from "../../../context/SectionContext";
+import styled from "styled-components";
 
 const ThreadsStyle = styled.div`
   grid-column: 3/10;
@@ -10,9 +17,16 @@ const ThreadsStyle = styled.div`
 
 function Threads() {
   return (
-    <ThreadsStyle>
-      <Thread>hi wassup</Thread>
-    </ThreadsStyle>
+    <SectionProvider>
+      <Layout>
+        <LeftSidebar></LeftSidebar>
+        <ThreadsStyle>
+          <Thread>hi wassup</Thread>
+        </ThreadsStyle>
+        <RightSidebar text="Post a Response"></RightSidebar>
+      </Layout>
+      <Player></Player>
+    </SectionProvider>
   );
 }
 
