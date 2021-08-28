@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Title, ProfilePhoto, Content, Controls } from "./style";
 import PlayButton from "../../../components/shared/PlayButton";
+import RecordButton from "../../../components/Play/RecordButton";
 import profilepic from "../../../static/imgs/profile_photo.png";
 import Divider from "../../../components/shared/Divider";
 import { ButtonLarge, ButtonMedium } from "../../../components/shared/Button";
@@ -22,13 +23,24 @@ const CreatePostStyles = styled.div`
 `;
 
 function CreatePost() {
+  const [recording, setRecording] = React.useState(false);
+
+  const toggleRecording = () => setRecording(!recording);
+
   return (
     <CreatePostStyles>
+      <RecordButton></RecordButton>
       <Title>
         <ProfilePhoto src={profilepic}></ProfilePhoto>
         <h4>Wilson Hou</h4>
         <h5>Press here to record -{">"}</h5>
-        <button className="play">
+        <button
+          className="play"
+          onClick={() => {
+            toggleRecording();
+            console.log(recording);
+          }}
+        >
           <PlayButton></PlayButton>
         </button>
       </Title>
@@ -44,8 +56,10 @@ function CreatePost() {
       <Controls>
         <input type="checkbox"></input>
         <p>Post Anonymously</p>
-        <ButtonLarge backgroundColor="#ffffff"></ButtonLarge>
-        <ButtonLarge></ButtonLarge>
+        <ButtonLarge color="var(--secondary)" backgroundColor="#ffffff">
+          Cancel
+        </ButtonLarge>
+        <ButtonLarge>Post</ButtonLarge>
       </Controls>
     </CreatePostStyles>
   );
