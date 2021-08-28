@@ -15,8 +15,6 @@ function App() {
           <Route path="/">
             <Hero></Hero>
           </Route>
-          <Route path="/signup"></Route>
-          <Route path="/home"></Route>
         </Switch>
       </Router>
     </>
