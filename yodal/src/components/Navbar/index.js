@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { ButtonMedium } from "../shared/Button";
 import Logo from "./Logo";
-import { Link } from 'react-router-dom';
 
 const NavBarStyles = styled.nav`
   min-height: 8rem;
@@ -32,7 +31,7 @@ const NavBar = ({ signedIn }) => {
         <Logo></Logo>
         <div className="buttons">
           <a href="/">Login</a>
-          <Link><ButtonMedium>Sign up</ButtonMedium></Link>
+          <ButtonMedium>Sign up</ButtonMedium>
         </div>
       </div>
     </NavBarStyles>

@@ -69,11 +69,17 @@ const PageOne = ({ setPage }) => {
                 Already have an account? <u><a href="/">Log in.</a></u>
             </p>
             <hr className="sep"></hr>
-            <h5>Email Address</h5>
+            <h5>
+              Email Address
+            </h5>
             <InputStyles className="sep" />
-            <h5>Password</h5>
+            <h5>
+              Password
+            </h5>
             <InputStyles className="sep" type='password' />
-            <ButtonLarge onClick={() => setPage('PageTwo')}>Create Account</ButtonLarge>
+            <ButtonLarge onClick={() => setPage('PageTwo')}>
+              Create Account
+            </ButtonLarge>
             </div>
         </div>
     )  
