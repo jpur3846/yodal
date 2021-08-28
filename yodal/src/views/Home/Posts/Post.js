@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import Divider from "../../../components/shared/Divider";
 import Heart from "../../../components/shared/Heart";
 import Message from "../../../components/shared/Message";
