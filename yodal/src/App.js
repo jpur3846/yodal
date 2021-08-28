@@ -1,22 +1,17 @@
-import './App.css';
-import './index.css';
-import NavBar from './components/NavBar';
-import Footer from './components/Footer';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-import Container from 'react-bootstrap/Container';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "./App.css";
+import "./index.css";
+import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Container from "react-bootstrap/Container";
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
     <>
-    <NavBar />
-    <Container fluid className="px-sm-5 px-3" style={{ height: '100vh' }}>
-      <Router>
+      <NavBar />
+      <Container fluid className="px-sm-5 px-3" style={{ height: "100vh" }}>
+        <Router>
           <Switch>
             <Route path="/">
               <p>Landing Page</p>
@@ -29,8 +24,8 @@ function App() {
             </Route>
           </Switch>
         </Router>
-    </Container>
-    <Footer />
+      </Container>
+      <Footer />
     </>
   );
 }

@@ -1,35 +1,40 @@
-import { Row, Col } from 'react-bootstrap';
-import MainButton from '../components/buttons';
+import { Row, Col } from "react-bootstrap";
+import MainButton from "../components/buttons";
 
-import logo from '../static/imgs/logo.png';
+import logo from "../static/imgs/logo.png";
+import styled from "styled-components";
+
+const NavBarStyles = styled.nav`
+  position: fixed;
+`;
 
 const NavBar = ({ signedIn }) => {
-    return (
-        <Row 
-            style={{ 
-                height: '80px',
-                boxShadow: '0px 4px 63px -22px'
-            }} 
-            className="d-flex align-items-center px-sm-5 px-3"
-        >
-            <Col xs={6} lg={3} className="justify-content-start align-items-center">
-                <img src={logo} alt="Yodal Logo" height="40px" width="auto" />
+  return (
+    <NavBarStyles>
+      <h1>sup bro</h1>
+      <Row
+        style={{
+          height: "80px",
+          boxShadow: "0px 4px 63px -22px",
+        }}
+        className="d-flex align-items-center px-sm-5 px-3"
+      >
+        <Col xs={6} lg={3} className="justify-content-start align-items-center">
+          <img src={logo} alt="Yodal Logo" height="40px" width="auto" />
+        </Col>
+        <Col xs={6} lg={9}>
+          <Row className="d-flex justify-content-end align-items-center">
+            <Col className="d-flex justify-content-end align-items-center">
+              <div className="px-5">Login</div>
+              <div className="px-1">
+                <MainButton text="Sign Up" />
+              </div>
             </Col>
-            <Col xs={6} lg={9}>
-                <Row className="d-flex justify-content-end align-items-center">
-                    <Col className="d-flex justify-content-end align-items-center">
-                        <div className="px-5">
-                        Login
-                        </div>
-                        <div className="px-1">
-                            <MainButton text='Sign Up' />
-                        </div>
-                    </Col>
-                </Row>
-            </Col>
-        </Row>
-    )
-
-}
+          </Row>
+        </Col>
+      </Row>
+    </NavBarStyles>
+  );
+};
 
 export default NavBar;
