@@ -1,27 +1,24 @@
-import { useState } from 'react';
+import styled from "styled-components";
 
-const MainButton = ({ style, text, onClick, textColor, buttonColor, disabled, height }) => {
+const MainButton = styled.button`
+  min-width: 11rem;
+  height: 4.1rem;
+  background: ${props =>
+    props.backgroundColor ? props.backgroundColor : "#134169"};
+  border-radius: 8px;
+  border: none;
+  color: white;
+  font-weight: bold;
 
-    const [hovered, setHovered] = useState(false);
+  box-shadow: var(--level-1);
 
-    return (
-        <button onClick={onClick}
-            style={{
-                minWidth: '115px',
-                height: height ? height : '41px',
-                background: hovered ? '#ACE3EF' : '#134169',
-                borderRadius: '8px',
-                border: '0px',
-                color: textColor ? textColor : 'white',
-                fontWeight: 'bold',
-                ...style
-            }}
-            onMouseEnter={() => setHovered(true)} 
-            onMouseLeave={() => setHovered(false)}
-        >
-            {text}
-        </button>
-    )
-}
+  cursor: pointer;
+  transition: var(--cubeTransition);
+
+  &:hover {
+    background: #ace3ef;
+    box-shadow: var(--level-4);
+  }
+`;
 
 export default MainButton;
