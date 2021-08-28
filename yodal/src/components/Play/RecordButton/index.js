@@ -26,6 +26,8 @@ const RecordButton = ({ setAudioURL }) => {
     Mp3Recorder.stop()
       .getMp3()
       .then(([buffer, blob]) => {
+        console.log(blob);
+        console.log(buffer);
         const blobURL = URL.createObjectURL(blob);
         setAudioURL(blobURL);
         setRecordState({ blobURL, isRecording: false });

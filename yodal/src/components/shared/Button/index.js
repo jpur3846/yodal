@@ -4,6 +4,7 @@ export const ButtonLarge = styled.button`
   padding: 1.5rem 2rem;
   background: ${props =>
     props.backgroundColor ? props.backgroundColor : "#134169"};
+  color: ${props => (props.color ? props.color : "#fff")};
   border-radius: 8px;
   border: none;
   color: white;
