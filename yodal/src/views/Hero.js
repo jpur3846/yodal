@@ -14,7 +14,7 @@ const HeroStyles = styled.section`
   overflow: hidden;
 
   .inner {
-    margin: 0 auto;
+    margin: calc(80px - 20vh) auto 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;

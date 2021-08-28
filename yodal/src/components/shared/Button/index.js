@@ -8,6 +8,7 @@ export const ButtonLarge = styled.button`
   border: none;
   color: white;
   font-weight: 700;
+  line-height: 1.25;
 
   cursor: pointer;
   transition: var(--cubeTransition);
@@ -27,6 +28,7 @@ export const ButtonMedium = styled.button`
   border: none;
   color: white;
   font-weight: 600;
+  line-height: 1.5;
 
   cursor: pointer;
   transition: var(--cubeTransition);

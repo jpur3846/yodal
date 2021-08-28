@@ -4,6 +4,54 @@ import { normalize } from "styled-normalize";
 const GlobalStyle = createGlobalStyle`
   ${normalize}
 
+  // font face
+  @font-face {
+      font-family: 'SF Pro Display';
+      src: url('../../static/fonts/SFProDisplay-Regular.woff2') format('woff2'),
+          url('../../static/fonts/SFProDisplay-Regular.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'SF Pro Display';
+      src: url('../../static/fonts/SFProDisplay-Semibold.woff2') format('woff2'),
+          url('../../static/fonts/SFProDisplay-Semibold.woff') format('woff');
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'SF Pro Display';
+      src: url('../../static/fonts/SFProDisplay-Medium.woff2') format('woff2'),
+          url('../../static/fonts/SFProDisplay-Medium.woff') format('woff');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'SF Pro Display';
+      src: url('../../static/fonts/SFProDisplay-Bold.woff2') format('woff2'),
+          url('../../static/fonts/SFProDisplay-Bold.woff') format('woff');
+      font-weight: bold;
+      font-style: normal;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'SF Pro Text';
+      src: url('../../static/fonts/SFProText-Regular.woff2') format('woff2'),
+          url('../../static/fonts/SFProText-Regular.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+  }
+
+
+
   :root {
     // Colours
     --primary: #ACE3EF;
@@ -19,8 +67,8 @@ const GlobalStyle = createGlobalStyle`
     
 
     // Typography
-    --headingFont: Montserrat, sans-serif;
-    --bodyFont: Open Sans, sans-serif;
+    --headingFont: "SF Pro Display", sans-serif;
+    --bodyFont: "SF Pro Text", sans-serif;
 
     --h1: 3.6rem;
     --h2: 3.3rem;

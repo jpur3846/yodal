@@ -18,7 +18,7 @@ const RecordButton = ({ setAudioURL }) => {
         .then(() => {
           setRecordState({ isRecording: true });
         })
-        .catch((e) => console.error(e));
+        .catch(e => console.error(e));
     }
   };
 
@@ -30,22 +30,8 @@ const RecordButton = ({ setAudioURL }) => {
         setAudioURL(blobURL);
         setRecordState({ blobURL, isRecording: false });
       })
-      .catch((e) => console.log(e));
+      .catch(e => console.log(e));
   };
-
-  function componentDidMount() {
-    navigator.getUserMedia(
-      { audio: true },
-      () => {
-        console.log("Permission Granted");
-        setRecordState({ isBlocked: false });
-      },
-      () => {
-        console.log("Permission Denied");
-        setRecordState({ isBlocked: true });
-      }
-    );
-  }
 
   return (
     <div className="App">
