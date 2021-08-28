@@ -1,7 +1,6 @@
 import React from "react";
 import useSound from "use-sound";
-import RecordButton from "../../../components/Play/RecordButton";
-// import testAudio from "../../../static/audio/test.mp3";
+import testAudio from "../../../static/audio/test.mp3";
 
 import Divider from "../../../components/shared/Divider";
 import Heart from "../../../components/shared/Heart";
@@ -17,18 +16,24 @@ import {
   Socials,
   Title,
 } from "./style";
+import { useCurrentAudio, usePlaying } from "../../../context/AudioContext";
 
 function Post({ post }) {
-  const soundURL = "../../../static/audio/test.mp3";
-  const [play] = useSound(soundURL, { volume: 0.5 });
+  const [play] = useSound(testAudio, { volume: 0.5 });
+  const { setCurrentAudioURL } = useCurrentAudio();
+  const { setIsPlaying } = usePlaying();
   return (
     <PostStyles>
       <Title>
         <ProfilePhoto src={avatar}></ProfilePhoto>
-        <RecordButton setAudioURL={() => {}}></RecordButton>
         <h4>{post.name}</h4>
         <h5>posted a memo • {post.time_since_posted}</h5>
-        <button onClick={play} className="play">
+        <button
+          onClick={() => {
+            setCurrentAudioURL("../../../context/AudioContext.js");
+          }}
+          className="play"
+        >
           <PlayButton></PlayButton>
         </button>
       </Title>

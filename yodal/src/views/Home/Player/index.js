@@ -12,11 +12,14 @@ import LinearProgress from "@material-ui/core/LinearProgress";
 import { withStyles } from "@material-ui/core/styles";
 import testAudioSrc from "../../../static/audio/test.mp3";
 import useSound from "use-sound";
+import { useCurrentAudio, usePlaying } from "../../../context/AudioContext";
 
 const PlayerStyles = styled.div`
+  opacity: ${props => (props.isShown ? 1 : 0)} !important;
   display: grid;
   grid-template-columns: 4fr 1fr;
   grid-template-rows: 2fr 1fr;
+  transition: var(--cubeTransition);
 
   width: 100vw;
   min-height: 100px;
@@ -91,8 +94,10 @@ const StyledLinearProgress = withStyles({
 
 function Player({ audioURL }) {
   // const [play, { stop, isPlaying }] = useSound(testAudioSrc);
-  const [play, { stop }] = useSound(testAudioSrc);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [play, { pause }] = useSound(testAudioSrc);
+
+  const { currentAudioURL, setCurrentAudioURL } = useCurrentAudio();
+  const { isPlaying, setIsPlaying } = usePlaying();
 
   const handlePlay = () => {
     setIsPlaying(!isPlaying);
@@ -100,13 +105,13 @@ function Player({ audioURL }) {
       play();
       setIsPlaying(true);
     } else {
-      stop();
+      pause();
       setIsPlaying(false);
     }
   };
 
   return (
-    <PlayerStyles>
+    <PlayerStyles isShown={currentAudioURL}>
       <div className="audio-player">
         <FontAwesomeIcon icon={faBackward} id="backward" />
         <FontAwesomeIcon
@@ -116,7 +121,6 @@ function Player({ audioURL }) {
           onClick={handlePlay}
           id="play"
         />
-        {/* <FontAwesomeIcon size={"lg"} icon={faPause} id="play" /> */}
         <FontAwesomeIcon icon={faForward} id="forward" />
       </div>
       <div className="title">
