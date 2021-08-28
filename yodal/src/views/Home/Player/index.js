@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import avatar from "../../../static/imgs/avatar1.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,6 +10,8 @@ import {
 } from "@fortawesome/fontawesome-free-solid";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import { withStyles } from "@material-ui/core/styles";
+import testAudioSrc from "../../../static/audio/test.mp3";
+import useSound from "use-sound";
 
 const PlayerStyles = styled.div`
   display: grid;
@@ -23,7 +25,8 @@ const PlayerStyles = styled.div`
   left: 0;
   background: white;
 
-  #forward, #play {
+  #forward,
+  #play {
     margin-left: 30px;
   }
 
@@ -32,7 +35,8 @@ const PlayerStyles = styled.div`
     color: var(--secondary);
   }
 
-  #forward, #backward {
+  #forward,
+  #backward {
     font-size: 15px;
     color: var(--secondary);
   }
@@ -51,7 +55,8 @@ const PlayerStyles = styled.div`
     }
   }
 
-  h3, p {
+  h3,
+  p {
     margin-left: 3.2rem;
   }
 
@@ -80,19 +85,37 @@ const PlayerStyles = styled.div`
 
 const StyledLinearProgress = withStyles({
   barColorPrimary: {
-    backgroundColor: "#134169"
-  }
+    backgroundColor: "#134169",
+  },
 })(LinearProgress);
 
-function Player() {
-  const audioEl = useRef(null);
-  // Use audioEl.current to .play(), .stop() etc.
+function Player({ audioURL }) {
+  // const [play, { stop, isPlaying }] = useSound(testAudioSrc);
+  const [play, { stop }] = useSound(testAudioSrc);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handlePlay = () => {
+    setIsPlaying(!isPlaying);
+    if (!isPlaying) {
+      play();
+      setIsPlaying(true);
+    } else {
+      stop();
+      setIsPlaying(false);
+    }
+  };
 
   return (
     <PlayerStyles>
       <div className="audio-player">
         <FontAwesomeIcon icon={faBackward} id="backward" />
-        <FontAwesomeIcon size={"lg"} icon={faPlay} id="play" />
+        <FontAwesomeIcon
+          size={"lg"}
+          icon={!isPlaying ? faPlay : faPause}
+          active={isPlaying}
+          onClick={handlePlay}
+          id="play"
+        />
         {/* <FontAwesomeIcon size={"lg"} icon={faPause} id="play" /> */}
         <FontAwesomeIcon icon={faForward} id="forward" />
       </div>
