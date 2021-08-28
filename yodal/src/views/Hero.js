@@ -5,7 +5,7 @@ import SignUpModal from "../components/SignUpModal";
 import HeroImage from "../static/imgs/hero.png";
 
 const HeroStyles = styled.section`
-  height: calc(100vh - 80px);
+  height: 100vh;
 
   position: relative;
   display: flex;
@@ -14,7 +14,7 @@ const HeroStyles = styled.section`
   overflow: hidden;
 
   .inner {
-    margin: calc(80px - 20vh) auto 0 auto;
+    /* margin: calc(80px - 20vh) auto 0 auto; */
     display: flex;
     justify-content: space-between;
     align-items: center;
