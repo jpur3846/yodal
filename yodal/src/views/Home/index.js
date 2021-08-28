@@ -3,6 +3,7 @@ import Layout from "../../components/shared/Layout";
 import LeftSidebar from "./LeftSidebar";
 import Player from "./Player";
 import Posts from "./Posts";
+import Threads from "./Threads";
 import RightSidebar from "./RightSidebar";
 
 function Home() {
