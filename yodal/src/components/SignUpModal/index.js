@@ -72,7 +72,7 @@ const PageOne = ({ setPage }) => {
             <h5>Email Address</h5>
             <InputStyles className="sep" />
             <h5>Password</h5>
-            <InputStyles className="sep" />
+            <InputStyles className="sep" type='password' />
             <ButtonLarge onClick={() => setPage('PageTwo')}>Create Account</ButtonLarge>
             </div>
         </div>
