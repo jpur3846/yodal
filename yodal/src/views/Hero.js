@@ -1,13 +1,17 @@
+import { useState } from "react";
 import styled from "styled-components";
 import { ButtonLarge } from "../components/shared/Button";
+import SignUpModal from "../components/SignUpModal";
 import HeroImage from "../static/imgs/hero.png";
 
 const HeroStyles = styled.section`
-  min-height: 80vh;
+  height: calc(100vh - 80px);
 
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 
   .inner {
     margin: 0 auto;
@@ -39,16 +43,21 @@ const HeroStyles = styled.section`
   }
 `;
 
+// TODO: fix modal thingo
 function Hero() {
+  const [showSignUpModal, setShowSignUpModal] = useState(false);
   return (
     <HeroStyles>
+      <SignUpModal show={showSignUpModal}></SignUpModal>
       <div className="inner">
         <div className="content">
           <h1>
             Stop venting.
             <br /> Start <span class="highlight">Yodalling.</span>
           </h1>
-          <ButtonLarge>Sign Up Today</ButtonLarge>
+          <ButtonLarge onClick={() => setShowSignUpModal(true)}>
+            Sign Up Today
+          </ButtonLarge>
         </div>
 
         <div className="image">

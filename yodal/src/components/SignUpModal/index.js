@@ -1,11 +1,12 @@
-import { Button } from "react-bootstrap";
 import styled from "styled-components";
 import { ButtonLarge } from "../shared/Button";
 import InputStyles from "../shared/InputStyles";
 
 const SignUpModalStyles = styled.div`
+  display: ${props => (props.show ? "flex" : "none")};
+
   .modal-outer {
-    width: 43.6rem;
+    /* width: 43.6rem;
     height: 40.8rem;
     left: 381px;
     top: 126px;
@@ -14,7 +15,14 @@ const SignUpModalStyles = styled.div`
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 30px;
+    padding: 30px; */
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.5);
   }
 
   .modal {
@@ -38,9 +46,9 @@ const SignUpModalStyles = styled.div`
   }
 `;
 
-const SignUpModal = () => {
+const SignUpModal = ({ show = false }) => {
   return (
-    <SignUpModalStyles>
+    <SignUpModalStyles show={show}>
       <div className="modal-outer">
         <div className="modal">
           <h4>SIGN UP</h4>
