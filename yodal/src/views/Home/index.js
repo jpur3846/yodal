@@ -15,12 +15,18 @@ function Home() {
     <SectionProvider>
       <Layout>
         <LeftSidebar></LeftSidebar>
-        {showCreatePost ? <CreatePost></CreatePost> : null}
+        {showCreatePost ? (
+          <CreatePost setShow={setShowCreatePost}></CreatePost>
+        ) : null}
         {/* <Threads></Threads> */}
         {/* <RecordButton></RecordButton> */}
         {/* <Threads></Threads> */}
         <Posts></Posts>
-        <RightSidebar text="Post a Memo" setShowCreatePost={setShowCreatePost} showCreatePost={showCreatePost}></RightSidebar>
+        <RightSidebar
+          text="Post a Memo"
+          setShowCreatePost={setShowCreatePost}
+          showCreatePost={showCreatePost}
+        ></RightSidebar>
       </Layout>
       <Player></Player>
     </SectionProvider>

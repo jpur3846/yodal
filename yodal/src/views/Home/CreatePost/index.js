@@ -41,7 +41,7 @@ function convert(value) {
   return Math.floor(value / 60) + ":" + (value % 60 ? value % 60 : "00");
 }
 
-function CreatePost({ post = {} }) {
+function CreatePost({ post = {}, setShow }) {
   const [clicked, setClicked] = useState(false);
   const [timer, setTimer] = useState(0);
 
@@ -55,6 +55,7 @@ function CreatePost({ post = {} }) {
 
   // Fk me my brain is so fried
   const [audioURL, setAudioURL] = useState("");
+  const [description, setDescription] = useState("");
 
   const { posts, addPost } = usePostContext();
 
@@ -103,15 +104,15 @@ function CreatePost({ post = {} }) {
   const handleButtonPost = () => {
     addPost({
       name: "Raghav Ramanathan",
-      message:
-        "A duck walked up to a lemonade stand, and he said to the man...",
+      message: description,
       audio_url: 0,
       profile_url: 0,
-      likes: 11,
-      comments: "1",
-      time_since_posted: "10 minutes ago",
+      likes: 0,
+      comments: 0,
+      time_since_posted: "less than a minute ago",
     });
-    console.log(posts);
+    setDescription("");
+    setShow(false);
   };
 
   return (
@@ -158,8 +159,13 @@ function CreatePost({ post = {} }) {
           </Pair>
         </Title>
         <TextField>
-          <InputStyles className="sep" name="fName" />
-          <p> Add a description</p>
+          <InputStyles
+            value={description}
+            onChange={ev => setDescription(ev.target.value)}
+            className="sep"
+            name="fName"
+          />
+          <p>Add a description</p>
         </TextField>
       </PostStyles>
     </CreatePostStyles>
