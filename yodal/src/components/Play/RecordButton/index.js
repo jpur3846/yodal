@@ -29,9 +29,11 @@ const RecordButton = ({ setAudioURL }) => {
         const blobURL = URL.createObjectURL(blob);
         setAudioURL(blobURL);
         setRecordState({ blobURL, isRecording: false });
+        console.log(blobURL);
       })
       .catch(e => console.log(e));
   };
+  console.log(recordState);
 
   return (
     <div>

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Play from "../../../components/Play";
 import Post from "./Post";
 
 const PostsStyles = styled.div`
@@ -11,6 +12,7 @@ const PostsStyles = styled.div`
 function Posts() {
   return (
     <PostsStyles>
+      <Play></Play>
       <Post>hi wassup</Post>
       <Post>hi wassup</Post>
       <Post>hi wassup</Post>
