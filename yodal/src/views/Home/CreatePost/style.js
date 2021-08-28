@@ -24,6 +24,18 @@ export const ProfilePhoto = styled.img`
   width: 3.2rem;
 `;
 
+export const TextField = styled.div`
+  padding-top: 10px;
+  padding-left: 10px;
+
+  display: flex;
+  flex-direction: row;
+
+  p {
+    padding-left: 7px;
+  }
+`;
+
 export const Title = styled.div`
   display: flex;
   justify-content: flex-start;
@@ -58,7 +70,7 @@ export const Title = styled.div`
     grid-col: 4/6;
     align-self: flex-end;
   }
-  
+
   .Buttonpost {
     background-color: var(--secondary);
     color: #fff;
@@ -66,6 +78,10 @@ export const Title = styled.div`
 
   .Button {
     color: var(--secondary);
+  }
+
+  audio {
+    padding-top: 10px;
   }
 `;
 
@@ -86,4 +102,13 @@ export const Pair = styled.div`
     margin-left: 0.6rem;
     font-weight: light;
   }
+`;
+
+export const InputStyles = styled.input`
+  width: 300px;
+  height: 30px;
+  padding: 10px;
+  border: 2px solid #d9e0e7;
+  box-sizing: border-box;
+  border-radius: 6px;
 `;

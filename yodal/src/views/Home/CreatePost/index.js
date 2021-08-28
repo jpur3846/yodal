@@ -15,8 +15,9 @@ import {
   Content,
   Pair,
   ProfilePhoto,
-  Socials,
+  TextField,
   Title,
+  InputStyles,
 } from "./style";
 
 const Mp3Recorder = new MicRecorder({ bitRate: 128 });
@@ -155,6 +156,10 @@ function CreatePost({ post = {} }) {
             </ButtonMedium>
           </Pair>
         </Title>
+        <TextField>
+          <InputStyles className="sep" name="fName" />
+          <p> Add a description</p>
+        </TextField>
       </PostStyles>
     </CreatePostStyles>
   );
