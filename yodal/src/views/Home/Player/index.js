@@ -110,7 +110,6 @@ function Player({ audioURL }) {
     if (!isPlaying) {
       play({ playbackRate: playbackRate });
       setIsPlaying(true);
-      setProgressIndicator(progressIndicator + 10);
     } else {
       pause();
       setIsPlaying(false);
@@ -138,7 +137,7 @@ function Player({ audioURL }) {
           icon={faForward}
           id="forward"
           onClick={() => {
-            setPlaybackRate(playbackRate + 0.5);
+            setProgressIndicator(progressIndicator + 2);
           }}
         />
       </div>
