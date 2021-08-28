@@ -5,14 +5,16 @@ import Player from "./Player";
 import Posts from "./Posts";
 import Threads from "./Threads";
 import RightSidebar from "./RightSidebar";
+import CreatePost from "./CreatePost";
 
 function Home() {
   return (
     <>
       <Layout>
         <LeftSidebar></LeftSidebar>
-        <Posts></Posts>
-        <RightSidebar></RightSidebar>
+        <CreatePost></CreatePost>
+        {/* <Posts></Posts>
+        <RightSidebar></RightSidebar> */}
       </Layout>
       <Player></Player>
     </>

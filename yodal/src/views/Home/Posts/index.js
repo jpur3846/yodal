@@ -1,6 +1,9 @@
 import React from "react";
 import styled from "styled-components";
+import Play from "../../../components/Play";
 import Post from "./Post";
+import { db } from '../../../firebase'; 
+
 
 const PostsStyles = styled.div`
   grid-column: 3/10;
@@ -11,10 +14,10 @@ const PostsStyles = styled.div`
 function Posts() {
   return (
     <PostsStyles>
-      <Post>hi wassup</Post>
-      <Post>hi wassup</Post>
-      <Post>hi wassup</Post>
-      <Post>hi wassup</Post>
+      <Post></Post>
+      <Post></Post>
+      <Post></Post>
+      <Post></Post>
     </PostsStyles>
   );
 }

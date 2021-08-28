@@ -1,36 +1,41 @@
 import { createContext, useState, useContext } from "react";
 
 const AudioContext = createContext({
-  audioURL: "",
+  currentAudioURL: "",
   setAudioURL: () => {},
+  audios: [],
+  setAudios: () => {},
 });
 
+/*
+{
+  audioURL: "blob:dsfsdfsomething",
+  name: ["Wilson Hou", "Jack Purdon", "Raghav Ramanathan", "Jarvis Wang"][Math.floor(Math.random() * 4)],
+  description: "I'm feeling kinda blue honestly."
+  id: uuid()
+}
+*/
+
 export function AudioProvider({ children }) {
-  const [audioURL, setAudioURL] = useState("");
+  const [currentAudioURL, setCurrentAudioURL] = useState("");
+  const [audios, setAudios] = useState([]);
   return (
-    <AudioContext.Provider value={{ audioURL, setAudioURL }}>
+    <AudioContext.Provider
+      value={{ currentAudioURL, setCurrentAudioURL, audios, setAudios }}
+    >
       {children}
     </AudioContext.Provider>
   );
 }
 
 export function useAudio() {
-  const { audioURL, setAudioURL } = useContext(AudioContext);
-  return { audioURL, setAudioURL };
+  const { audios, setAudios } = useContext(AudioContext);
+  return { audios, setAudios };
+}
+
+export function useCurrentAudio() {
+  const { currentAudioURL, setCurrentAudioURL } = useContext(AudioContext);
+  return { currentAudioURL, setCurrentAudioURL };
 }
 
 export default AudioContext;
-
-// export function ModalProvider({ children }) {
-//   const [isOpen, setIsOpen] = React.useState(false);
-
-//   const toggle = () => setIsOpen(!isOpen);
-
-//   return (
-//     <ModalContext.Provider value={{ isOpen, toggle }}>
-//       {children}
-//     </ModalContext.Provider>
-//   );
-// }
-
-// export default ModalContext;
