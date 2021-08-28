@@ -30,7 +30,7 @@ function Posts() {
   return (
     <PostsStyles>
       {sections[idx].map(post => (
-        <Post key={uuidv4()} post={post} />
+        <Post key={uuidv4()} post={{ ...post, audio: "" }} />
       ))}
     </PostsStyles>
   );
