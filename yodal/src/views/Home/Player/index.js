@@ -15,7 +15,7 @@ import useSound from "use-sound";
 import { useCurrentAudio, usePlaying } from "../../../context/AudioContext";
 
 const PlayerStyles = styled.div`
-  opacity: ${(props) => (props.isShown ? 1 : 0)} !important;
+  opacity: ${props => (props.isShown ? 1 : 0)} !important;
   display: grid;
   grid-template-columns: 4fr 1fr;
   grid-template-rows: 2fr 1fr;
@@ -150,11 +150,11 @@ function Player(audioURL) {
         />
       </div>
       <div className="title">
-        <img src={avatar}></img>
+        <img src={avatar} alt="avatar"></img>
         <h3>Wilson Hou</h3>
         <p>
-          I found networking was the best way to landing my first internship. It
-          makes easier to ...
+          Hey guys! Was just wondering how you take care of yourself during
+          lockdown?
         </p>
       </div>
       <div class="progress-bar-div">

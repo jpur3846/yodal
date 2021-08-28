@@ -59,7 +59,7 @@ const NavBar = () => {
       <div className="container">
         <Logo></Logo>
         <div className="buttons">
-          <a href="/">Login</a>
+          <a href="/home">Login</a>
           <ButtonMedium>Sign up</ButtonMedium>
         </div>
       </div>
@@ -70,7 +70,9 @@ const NavBar = () => {
         <Logo></Logo>
         <div className="profile">
           <Profile_Photo></Profile_Photo>
-          <p>Raghav Ramanathan</p>
+          <a href="/home">
+            <p>Raghav Ramanathan</p>
+          </a>
           <Arrow></Arrow>
         </div>
       </div>
