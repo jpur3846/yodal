@@ -89,6 +89,7 @@ const PageOne = ({ setPage, userDetails, setUserDetails }) => {
           onChange={e =>
             setUserDetails({ ...userDetails, emailAddress: e.target.value })
           }
+          required
         />
         <h5>Password</h5>
         <InputStyles
@@ -97,8 +98,13 @@ const PageOne = ({ setPage, userDetails, setUserDetails }) => {
           onChange={e =>
             setUserDetails({ ...userDetails, password: e.target.value })
           }
+          required
         />
-        <ButtonLarge onClick={() => setPage("PageTwo")}>
+        <ButtonLarge onClick={() => {
+          if (userDetails.emailAddress && userDetails.password) {
+            setPage("PageTwo");
+          }
+        }}>
           Create Account
         </ButtonLarge>
       </div>
@@ -127,7 +133,7 @@ const PageTwo = ({ setPage }) => {
   );
 };
 
-const PageThree = ({ setPage }) => {
+const PageThree = ({ setPage, userDetails }) => {
   const { signup } = useAuth();
 
   return (
