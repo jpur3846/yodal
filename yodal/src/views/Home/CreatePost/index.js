@@ -19,6 +19,7 @@ import {
   Title,
   InputStyles,
 } from "./style";
+import { usePostContext } from "../../../context/PostContext";
 
 const Mp3Recorder = new MicRecorder({ bitRate: 128 });
 
@@ -55,7 +56,9 @@ function CreatePost({ post = {} }) {
   // Fk me my brain is so fried
   const [audioURL, setAudioURL] = useState("");
 
-  const createAudioUrl = (blobURL) => {
+  const { posts, addPost } = usePostContext();
+
+  const createAudioUrl = blobURL => {
     setAudioURL(blobURL);
   };
 
@@ -73,7 +76,7 @@ function CreatePost({ post = {} }) {
         .then(() => {
           setRecordState({ isRecording: true });
         })
-        .catch((e) => console.error(e));
+        .catch(e => console.error(e));
     }
   };
 
@@ -81,14 +84,11 @@ function CreatePost({ post = {} }) {
     Mp3Recorder.stop()
       .getMp3()
       .then(([buffer, blob]) => {
-        console.log(blob);
-        console.log(buffer);
         const blobURL = URL.createObjectURL(blob);
         setAudioURL(blobURL);
         setRecordState({ blobURL, isRecording: false });
-        console.log(blobURL);
       })
-      .catch((e) => console.log(e));
+      .catch(e => console.log(e));
   };
 
   const handleRecordClicked = () => {
@@ -101,7 +101,7 @@ function CreatePost({ post = {} }) {
   };
 
   const handleButtonPost = () => {
-    explore.push({
+    addPost({
       name: "Raghav Ramanathan",
       message:
         "A duck walked up to a lemonade stand, and he said to the man...",
@@ -111,6 +111,7 @@ function CreatePost({ post = {} }) {
       comments: "1",
       time_since_posted: "10 minutes ago",
     });
+    console.log(posts);
   };
 
   return (

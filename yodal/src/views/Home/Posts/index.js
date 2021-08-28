@@ -11,6 +11,7 @@ import twoamthoughts from "../../../fixtures/twoamthoughts.json";
 import mymemos from "../../../fixtures/mymemos.json";
 import { useSectionContext } from "../../../context/SectionContext";
 import { Link } from "react-router-dom";
+import { usePostContext } from "../../../context/PostContext";
 
 const sections = [
   explore,
@@ -27,9 +28,12 @@ const PostsStyles = styled.div`
 
 function Posts() {
   const { section: idx } = useSectionContext();
+  const { posts } = usePostContext();
   return (
     <PostsStyles>
-      {sections[idx].map((post) => (
+      {/* Show your posts to mymemo! */}
+      {idx === 5 && posts.map(post => <Post key={uuidv4()} post={post} />)}
+      {sections[idx].map(post => (
         <Post key={uuidv4()} post={{ ...post, audio: "" }} />
       ))}
     </PostsStyles>
