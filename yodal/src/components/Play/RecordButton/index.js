@@ -18,7 +18,7 @@ const RecordButton = ({ setAudioURL }) => {
         .then(() => {
           setRecordState({ isRecording: true });
         })
-        .catch(e => console.error(e));
+        .catch((e) => console.error(e));
     }
   };
 
@@ -34,7 +34,7 @@ const RecordButton = ({ setAudioURL }) => {
         setRecordState({ blobURL, isRecording: false });
         console.log(blobURL);
       })
-      .catch(e => console.log(e));
+      .catch((e) => console.log(e));
   };
   console.log(recordState);
 

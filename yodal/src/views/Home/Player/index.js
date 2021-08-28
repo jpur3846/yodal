@@ -96,7 +96,7 @@ const StyledLinearProgress = withStyles({
   },
 })(LinearProgress);
 
-function Player({ audioURL }) {
+function Player(audioURL) {
   // const [play, { stop, isPlaying }] = useSound(testAudioSrc);
   const [play, { pause }] = useSound(testAudioSrc);
 
