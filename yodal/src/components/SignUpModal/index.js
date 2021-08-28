@@ -118,7 +118,6 @@ const PageTwo = ({ setPage }) => {
 
 const PageThree = ({ setPage, userDetails }) => {
   const { setAuth } = useAuth();
-  console.log(userDetails);
   return (
     <div className="modal-outer">
       <div className="modal">
