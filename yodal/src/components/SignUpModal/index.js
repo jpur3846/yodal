@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import MainButton from '../buttons';
+import { ButtonLarge } from '../shared/Button';
 import InputStyles from '../shared/InputStyles';
 
 const SignUpModalStyles = styled.div`
@@ -45,10 +45,9 @@ const SignUpModal = () => {
                     <hr></hr>
                     <h5>Email Address</h5>
                     <InputStyles />
-
                     <h5>Password</h5>
                     <InputStyles />
-                    <MainButton>Create Account</MainButton>
+                    <ButtonLarge>Create Account</ButtonLarge>
                 </div>
             </div>
         </SignUpModalStyles>
