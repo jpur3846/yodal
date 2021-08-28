@@ -1,12 +1,16 @@
 import React, { useRef } from "react";
-import styled from 'styled-components';
-import avatar from '../../../static/imgs/avatar1.png';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBackward, faForward, faPlay } from '@fortawesome/fontawesome-free-solid'
-import LinearProgress from '@material-ui/core/LinearProgress';
+import styled from "styled-components";
+import avatar from "../../../static/imgs/avatar1.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faBackward,
+  faForward,
+  faPlay,
+} from "@fortawesome/fontawesome-free-solid";
+import LinearProgress from "@material-ui/core/LinearProgress";
 
 const PlayerStyles = styled.div`
-  justify-content: center;
+  /* justify-content: center;
   
   .player-container {
     height: 10rem;
@@ -19,10 +23,6 @@ const PlayerStyles = styled.div`
     justify-content: space-between;
   }
 
-  img {
-    height: 36px;
-    width: auto;
-  }
 
   .player-container {
     box-shadow: 0px -4px 63px -22px rgba(19, 65, 105, 0.17);
@@ -72,8 +72,49 @@ const PlayerStyles = styled.div`
   .progress-bar {
     width: 10px;
   }
-  
-`
+   */
+
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  grid-template-rows: 2fr 1fr;
+
+  width: 100vw;
+  min-height: 100px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: white;
+
+  .title {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    background: red;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    h3,
+    p {
+      padding-left: 8.6rem;
+    }
+    img {
+      height: 36px;
+      width: auto;
+    }
+  }
+
+  .audio-player {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 2/3;
+    grid-row: 1/3;
+    svg {
+      margin: 0 1rem;
+    }
+  }
+`;
 
 function Player() {
   const audioEl = useRef(null);
@@ -81,24 +122,39 @@ function Player() {
 
   return (
     <PlayerStyles>
-      <div className="player-container">
-          <div className="inner-container">
-            <div className="profile">
-              <img src={avatar}></img>
-              <h3>Wilson Hou</h3>
-              <p>I found networking was the best way to landing my first internship. It makes easier to ...</p>
-            </div>
-            <div className="progress-bar">
-              <LinearProgress variant="determinate" value={100} />
-            </div>
-          </div>
-          <div className="audio-player">
-              <audio ref={audioEl} src={""} id="player"/>
-              <FontAwesomeIcon icon={faBackward} id="backward" />
-              <FontAwesomeIcon size={"lg"}  icon={faPlay} id="play" />
-              <FontAwesomeIcon icon={faForward} id="forward" />
-          </div>
+      <div className="audio-player">
+        <audio ref={audioEl} src={""} id="player" />
+        <FontAwesomeIcon icon={faBackward} id="backward" />
+        <FontAwesomeIcon size={"lg"} icon={faPlay} id="play" />
+        <FontAwesomeIcon icon={faForward} id="forward" />
       </div>
+
+      <div className="title">
+        <img src={avatar}></img>
+        <h3>Wilson Hou</h3>
+        <p>
+          I found networking was the best way to landing my first internship. It
+          makes easier to ...
+        </p>
+      </div>
+
+      {/* <div className="player-container">
+        <div className="inner-container">
+          <div className="profile">
+            <img src={avatar}></img>
+            <h3>Wilson Hou</h3>
+            <p>
+              I found networking was the best way to landing my first
+              internship. It makes easier to ...
+            </p>
+          </div>
+          <div className="progress-bar">
+            <LinearProgress variant="determinate" value={100} />
+          </div>
+        </div>
+        <div className="audio-player">
+        </div>
+      </div> */}
     </PlayerStyles>
   );
 }
