@@ -116,6 +116,14 @@ function Player({ audioURL }) {
     }
   };
 
+  useEffect(() => {
+    setTimeout(() => {
+      if (isPlaying && progressIndicator < 100) {
+        setProgressIndicator(progressIndicator + 1);
+      }
+    }, 100);
+  })
+
   return (
     <PlayerStyles isShown={currentAudioURL}>
       <div className="audio-player">
