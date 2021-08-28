@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import MainButton from "../buttons";
+import { ButtonMedium } from "../shared/Button";
 import Logo from "./Logo";
 
 const NavBarStyles = styled.nav`
@@ -31,7 +31,7 @@ const NavBar = ({ signedIn }) => {
         <Logo></Logo>
         <div className="buttons">
           <a href="/">Login</a>
-          <MainButton>Sign up</MainButton>
+          <ButtonMedium>Sign up</ButtonMedium>
         </div>
       </div>
     </NavBarStyles>

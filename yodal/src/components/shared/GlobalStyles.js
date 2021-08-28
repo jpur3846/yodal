@@ -6,26 +6,23 @@ const GlobalStyle = createGlobalStyle`
 
   :root {
     // Colours
-    --primary: #1264F1;
-    --lightPrimary: #c8d8f8;
-    --secondary: #FF9E00;
-    --tertiary:#F85F1C;
+    --primary: #ACE3EF;
+    --secondary: #134169;
+    --warning: #FE5442;
+    --success: #00CFB4;
     --black: #1E1E1E;
     --white: #FFF;
     --gray: #EEF0F4;
-    --darkGray: #94A3B1;
-    --darkestGray: #666;
-    --success: #1AB77C;
 
     // Colours as Intentions
-    --bodyTextColor: rgba(0, 0, 0, 0.6);
+    --bodyTextColor: var(--black);
     
 
     // Typography
     --headingFont: Montserrat, sans-serif;
     --bodyFont: Open Sans, sans-serif;
 
-    --h1: 3.5rem;
+    --h1: 3.6rem;
     --h2: 3.3rem;
     --h3: 3rem;
     --h4: 2rem;
