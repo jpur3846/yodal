@@ -6,28 +6,23 @@ const SignUpModalStyles = styled.div`
   display: ${props => (props.show ? "flex" : "none")};
 
   .modal-outer {
-    /* width: 43.6rem;
-    height: 40.8rem;
-    left: 381px;
-    top: 126px;
-    border-radius: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 30px; */
-
     position: absolute;
     top: 0;
     left: 0;
     height: 100vh;
     width: 100vw;
     background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
   }
 
   .modal {
+    margin-top: 5.1rem;
     padding: 30px;
     height: 40.8rem;
+    width: 43.6rem;
+    background-color: white;
+    border-radius: 8px;
   }
 
   p,
