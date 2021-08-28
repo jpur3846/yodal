@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import avatar from "../../../static/imgs/avatar1.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,11 +10,16 @@ import {
 } from "@fortawesome/fontawesome-free-solid";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import { withStyles } from "@material-ui/core/styles";
+import testAudioSrc from "../../../static/audio/test.mp3";
+import useSound from "use-sound";
+import { useCurrentAudio, usePlaying } from "../../../context/AudioContext";
 
 const PlayerStyles = styled.div`
+  opacity: ${props => (props.isShown ? 1 : 0)} !important;
   display: grid;
   grid-template-columns: 4fr 1fr;
   grid-template-rows: 2fr 1fr;
+  transition: var(--cubeTransition);
 
   width: 100vw;
   min-height: 100px;
@@ -23,7 +28,8 @@ const PlayerStyles = styled.div`
   left: 0;
   background: white;
 
-  #forward, #play {
+  #forward,
+  #play {
     margin-left: 30px;
   }
 
@@ -32,7 +38,8 @@ const PlayerStyles = styled.div`
     color: var(--secondary);
   }
 
-  #forward, #backward {
+  #forward,
+  #backward {
     font-size: 15px;
     color: var(--secondary);
   }
@@ -51,7 +58,8 @@ const PlayerStyles = styled.div`
     }
   }
 
-  h3, p {
+  h3,
+  p {
     margin-left: 3.2rem;
   }
 
@@ -70,6 +78,10 @@ const PlayerStyles = styled.div`
     }
   }
 
+  .audio-player:hover {
+    cursor: pointer;
+  }
+
   .progress-bar-div {
     padding-left: 8.6rem;
     padding-right: 8.6rem;
@@ -80,20 +92,39 @@ const PlayerStyles = styled.div`
 
 const StyledLinearProgress = withStyles({
   barColorPrimary: {
-    backgroundColor: "#134169"
-  }
+    backgroundColor: "#134169",
+  },
 })(LinearProgress);
 
-function Player() {
-  const audioEl = useRef(null);
-  // Use audioEl.current to .play(), .stop() etc.
+function Player({ audioURL }) {
+  // const [play, { stop, isPlaying }] = useSound(testAudioSrc);
+  const [play, { pause }] = useSound(testAudioSrc);
+
+  const { currentAudioURL, setCurrentAudioURL } = useCurrentAudio();
+  const { isPlaying, setIsPlaying } = usePlaying();
+
+  const handlePlay = () => {
+    setIsPlaying(!isPlaying);
+    if (!isPlaying) {
+      play();
+      setIsPlaying(true);
+    } else {
+      pause();
+      setIsPlaying(false);
+    }
+  };
 
   return (
-    <PlayerStyles>
+    <PlayerStyles isShown={currentAudioURL}>
       <div className="audio-player">
         <FontAwesomeIcon icon={faBackward} id="backward" />
-        <FontAwesomeIcon size={"lg"} icon={faPlay} id="play" />
-        {/* <FontAwesomeIcon size={"lg"} icon={faPause} id="play" /> */}
+        <FontAwesomeIcon
+          size={"lg"}
+          icon={!isPlaying ? faPlay : faPause}
+          active={isPlaying}
+          onClick={handlePlay}
+          id="play"
+        />
         <FontAwesomeIcon icon={faForward} id="forward" />
       </div>
       <div className="title">

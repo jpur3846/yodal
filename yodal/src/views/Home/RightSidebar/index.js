@@ -17,7 +17,7 @@ const RightSidebarStyles = styled.div`
   }
 `;
 
-function RightSidebar() {
+function RightSidebar(props) {
   return (
     <RightSidebarStyles>
       <div className="titleLabel">
@@ -31,8 +31,8 @@ function RightSidebar() {
           }
         ></CardComponent>
       </div>
-      <div className="memo">
-        <PostMemoButton text="Post a Memo"></PostMemoButton>
+      <div className="memo" onClick={() => {props.setShowCreatePost(!props.showCreatePost)}}>
+        <PostMemoButton text={props.text}></PostMemoButton>
       </div>
     </RightSidebarStyles>
   );

@@ -10,6 +10,7 @@ import motivational from "../../../fixtures/motivational.json";
 import twoamthoughts from "../../../fixtures/twoamthoughts.json";
 import mymemos from "../../../fixtures/mymemos.json";
 import { useSectionContext } from "../../../context/SectionContext";
+import { Link } from "react-router-dom";
 
 const sections = [
   explore,
@@ -27,13 +28,11 @@ const PostsStyles = styled.div`
 function Posts() {
   const { section: idx } = useSectionContext();
   return (
-    <>
-      <PostsStyles>
-        {sections[idx].map(post => (
-          <Post key={uuidv4()} post={post} />
-        ))}
-      </PostsStyles>
-    </>
+    <PostsStyles>
+      {sections[idx].map((post) => (
+        <Post key={uuidv4()} post={{ ...post, audio: "" }} />
+      ))}
+    </PostsStyles>
   );
 }
 

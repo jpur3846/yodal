@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Divider from "../../../components/shared/Divider";
 import RecordButton from "../../../components/shared/RecordButton";
 import PauseButton from "../../../components/shared/PauseButton";
+import PlayButton from "../../../components/shared/PlayButton";
 import avatar from "../../../static/imgs/userAvatar.png";
 import styled from "styled-components";
 import { ButtonLarge, ButtonMedium } from "../../../components/shared/Button";
@@ -63,7 +64,8 @@ function CreatePost({ post = {} }) {
         </Title>
         <Title>
           <Pair className="seconds">
-            { convert(timer) }
+            <PlayButton></PlayButton>
+            <p>{ convert(timer) }</p>
           </Pair>
         </Title>
         <Content>{post.message}</Content>

@@ -5,6 +5,7 @@ import RightArrow from "./RightArrow";
 const PostMemoStyles = styled.label`
   
   padding: 7px 10px;
+  cursor: pointer;
   
   display: flex;
   flex-direction: row;

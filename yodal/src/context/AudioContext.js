@@ -5,27 +5,33 @@ const AudioContext = createContext({
   setAudioURL: () => {},
   audios: [],
   setAudios: () => {},
+  isPlaying: false,
+  setIsPlaying: () => {},
 });
-
-/*
-{
-  audioURL: "blob:dsfsdfsomething",
-  name: ["Wilson Hou", "Jack Purdon", "Raghav Ramanathan", "Jarvis Wang"][Math.floor(Math.random() * 4)],
-  description: "I'm feeling kinda blue honestly."
-  id: uuid()
-}
-*/
 
 export function AudioProvider({ children }) {
   const [currentAudioURL, setCurrentAudioURL] = useState("");
   const [audios, setAudios] = useState([]);
+  const [isPlaying, setIsPlaying] = useState(false);
   return (
     <AudioContext.Provider
-      value={{ currentAudioURL, setCurrentAudioURL, audios, setAudios }}
+      value={{
+        currentAudioURL,
+        setCurrentAudioURL,
+        audios,
+        setAudios,
+        isPlaying,
+        setIsPlaying,
+      }}
     >
       {children}
     </AudioContext.Provider>
   );
+}
+
+export function usePlaying() {
+  const { isPlaying, setIsPlaying } = useContext(AudioContext);
+  return { isPlaying, setIsPlaying };
 }
 
 export function useAudio() {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Layout from "../../components/shared/Layout";
 import LeftSidebar from "./LeftSidebar";
 import Player from "./Player";
@@ -10,15 +10,17 @@ import RecordButton from "../../components/Play/RecordButton";
 import { SectionProvider } from "../../context/SectionContext";
 
 function Home() {
+  const [showCreatePost, setShowCreatePost] = useState(false);
   return (
     <SectionProvider>
       <Layout>
         <LeftSidebar></LeftSidebar>
-        <CreatePost></CreatePost>
+        {showCreatePost ? <CreatePost></CreatePost> : null}
         {/* <Threads></Threads> */}
         {/* <RecordButton></RecordButton> */}
+        {/* <Threads></Threads> */}
         <Posts></Posts>
-        <RightSidebar></RightSidebar>
+        <RightSidebar text="Post a Memo" setShowCreatePost={setShowCreatePost} showCreatePost={showCreatePost}></RightSidebar>
       </Layout>
       <Player></Player>
     </SectionProvider>
