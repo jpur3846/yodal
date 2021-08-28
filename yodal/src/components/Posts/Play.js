@@ -7,7 +7,7 @@ const PlayerStyles = styled.div``;
 const Play = () => {
   const [audioURL, setAudioURL] = useState("");
 
-  const createAudioUrl = blobURL => {
+  const createAudioUrl = (blobURL) => {
     setAudioURL(blobURL);
   };
 
