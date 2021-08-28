@@ -6,19 +6,14 @@ import Message from "../../../components/shared/Message";
 import PlayButton from "../../../components/shared/PlayButton";
 import avatar from "../../../static/imgs/userAvatar.png";
 
-import { Content, Pair, ProfilePhoto, Socials, Title } from "./style";
-
-const PostStyles = styled.div`
-  margin-bottom: 2rem;
-  padding: 1.5rem;
-  background: white;
-  box-shadow: var(--cardShadow);
-  border-radius: var(--normalRadius);
-
-  .second {
-    margin-left: 1rem;
-  }
-`;
+import {
+  PostStyles,
+  Content,
+  Pair,
+  ProfilePhoto,
+  Socials,
+  Title,
+} from "./style";
 
 function Post() {
   return (
@@ -27,17 +22,23 @@ function Post() {
         <ProfilePhoto src={avatar}></ProfilePhoto>
         <h4>Wilson Hou</h4>
         <h5>posted a memo • 10 minutes ago</h5>
-        <PlayButton className="play"></PlayButton>
+        <button className="play">
+          <PlayButton></PlayButton>
+        </button>
       </Title>
       <Content>Hi there! I found networking was pretty amazing.</Content>
       <Divider></Divider>
       <Socials>
         <Pair>
-          <Heart></Heart>
+          <button>
+            <Heart></Heart>
+          </button>
           <p>134</p>
         </Pair>
         <Pair className="second">
-          <Message></Message>
+          <button>
+            <Message></Message>
+          </button>
           <p>24</p>
         </Pair>
       </Socials>

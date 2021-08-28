@@ -136,9 +136,9 @@ const SignUpModal = ({ show = false }) => {
   const [page, setPage] = useState("PageOne");
   return (
     <SignUpModalStyles show={show}>
-      {page == "PageOne" ? (
+      {page === "PageOne" ? (
         <PageOne setPage={setPage} />
-      ) : page == "PageTwo" ? (
+      ) : page === "PageTwo" ? (
         <PageTwo setPage={setPage} />
       ) : (
         <PageThree setPage={setPage} />

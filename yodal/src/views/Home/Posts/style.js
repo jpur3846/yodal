@@ -1,5 +1,23 @@
 import styled from "styled-components";
 
+export const PostStyles = styled.div`
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: white;
+  box-shadow: var(--cardShadow);
+  border-radius: var(--normalRadius);
+
+  .second {
+    margin-left: 1rem;
+  }
+
+  button {
+    background: none;
+    cursor: pointer;
+    border: none;
+  }
+`;
+
 export const ProfilePhoto = styled.img`
   border-radius: 50%;
   height: 3.2rem;
@@ -20,22 +38,10 @@ export const Title = styled.div`
     font-weight: normal;
     margin-left: 2rem;
   }
-  svg {
+  button.play {
     margin-left: auto;
   }
 `;
-
-// export const PlayButton = styled.button`
-//   background-color: var(--secondary);
-//   border: none;
-//   border-radius: 50%;
-//   color: white;
-//   cursor: pointer;
-//   height: 1.8rem;
-//   width: 1.8rem;
-
-//   margin-left: auto;
-// `;
 
 export const Content = styled.p`
   margin: 1.5rem 0;
