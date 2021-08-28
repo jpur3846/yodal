@@ -75,6 +75,10 @@ const PlayerStyles = styled.div`
     }
   }
 
+  .audio-player:hover {
+    cursor: pointer;
+  }
+
   .progress-bar-div {
     padding-left: 8.6rem;
     padding-right: 8.6rem;
