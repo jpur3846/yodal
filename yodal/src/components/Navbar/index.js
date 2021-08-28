@@ -3,7 +3,7 @@ import { ButtonMedium } from "../shared/Button";
 import Logo from "./Logo";
 import Profile_Photo from "./Profile";
 import Arrow from "./Arrow";
-import { useLocation } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
 const NavBarStyles = styled.nav`
   position: fixed;
@@ -52,35 +52,30 @@ const NavBarStyles = styled.nav`
   }
 `;
 
-const NavBar = ({ signedIn }) => {
-  const location = useLocation();
-  if (signedIn) {
-    return (
-      <NavBarStyles>
-        <div className="container">
-          <Logo></Logo>
-          <div className="buttons">
-            <a href="/">Login</a>
-            <ButtonMedium>Sign up</ButtonMedium>
-          </div>
+const NavBar = () => {
+  const { auth } = useAuth();
+  return !auth.isAuthenticated ? (
+    <NavBarStyles>
+      <div className="container">
+        <Logo></Logo>
+        <div className="buttons">
+          <a href="/">Login</a>
+          <ButtonMedium>Sign up</ButtonMedium>
         </div>
-      </NavBarStyles>
-    );
-  }
-  if (!signedIn) {
-    return (
-      <NavBarStyles>
-        <div className="container">
-          <Logo></Logo>
-          <div className="profile">
-            <Profile_Photo></Profile_Photo>
-            <p>{location.state}</p>
-            <Arrow></Arrow>
-          </div>
+      </div>
+    </NavBarStyles>
+  ) : (
+    <NavBarStyles>
+      <div className="container">
+        <Logo></Logo>
+        <div className="profile">
+          <Profile_Photo></Profile_Photo>
+          <p>{auth.user.name}</p>
+          <Arrow></Arrow>
         </div>
-      </NavBarStyles>
-    );
-  }
+      </div>
+    </NavBarStyles>
+  );
 };
 
 export default NavBar;

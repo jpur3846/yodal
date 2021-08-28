@@ -8,9 +8,10 @@ import avatar2 from "../../static/imgs/avatar2.png";
 import avatar3 from "../../static/imgs/avatar3.png";
 import avatar4 from "../../static/imgs/avatar4.png";
 import AvatarSelect from "./AvatarSelect";
+import { useAuth } from "../../context/AuthContext";
 
 const SignUpModalStyles = styled.div`
-  display: ${(props) => (props.show ? "flex" : "none")};
+  display: ${props => (props.show ? "flex" : "none")};
 
   .modal-outer {
     position: absolute;
@@ -107,6 +108,8 @@ const PageTwo = ({ setPage }) => {
 };
 
 const PageThree = ({ setPage }) => {
+  const { setAuth } = useAuth();
+
   return (
     <div className="modal-outer">
       <div className="modal">
@@ -125,7 +128,13 @@ const PageThree = ({ setPage }) => {
         <h5>Add a short bio</h5>
         <InputStyles className="sep" />
         <Link to={{ pathname: "/home" }}>
-          <ButtonLarge>Finish!</ButtonLarge>
+          <ButtonLarge
+            onClick={() =>
+              setAuth({ isAuthenticated: true, user: { name: "Wilson Hou" } })
+            }
+          >
+            Finish!
+          </ButtonLarge>
         </Link>
       </div>
     </div>
