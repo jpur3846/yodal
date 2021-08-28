@@ -1,39 +1,49 @@
 import React from "react";
 import styled from "styled-components";
+import RightArrow from "./RightArrow";
 
-const PostMemoButton = styled.button`
-  position: static;
-  width: 240.05px;
-  height: 32px;
-  left: 0px;
-  top: 238px;
-
-  /* Inside Auto Layout */
-  flex: none;
-  order: 1;
-  align-self: stretch;
-  flex-grow: 0;
-  margin: 20px 0px;
-
+const PostMemoStyles = styled.label`
+  
+  padding: 7px 10px;
+  
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
-  padding: 7px 10px;
+  align-items: flex-start:
 
-  width: 240.05px;
-  height: 32px;
-  left: calc(50% - 240.05px / 2);
-  top: 238px;
+  box-shadow: 0px 1px 2px rgba(43, 71, 139, 0.15),
+    0px 7px 15px 3px rgba(19, 65, 105, 0.04);
 
-  border-radius: 10px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 18px;
+
   color: #ffffff;
   background: #134169;
+  border-radius: 5px;
 
-  font-family: SF Pro Display;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 150%;
+  .content{
+    width: 240px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .post {
+    padding: 0px;
+  }
 `;
+
+function PostMemoButton(props) {
+  return (
+    <PostMemoStyles>
+      <div className="content">
+        <PostMemoStyles className="post">{props.text}</PostMemoStyles>
+        <RightArrow></RightArrow>
+      </div>
+    </PostMemoStyles>
+  );
+}
 
 export default PostMemoButton;

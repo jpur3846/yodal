@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import RightArrowBlue from "./RightArrowBlue";
+import LeftArrowBlue from "./LeftArrowBlue";
 
 const CardComponentStyles = styled.div`
   background: #ffffff;
@@ -8,14 +10,13 @@ const CardComponentStyles = styled.div`
   border-radius: 10px;
 
   padding: 15px;
-  width: 240px;
 
   subheading {
     font-family: SF Pro Display;
     font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 125%;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
     color: #134169;
   }
 
@@ -27,7 +28,12 @@ const CardComponentStyles = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding-bottom: 12px;
+    padding-bottom: 14px;
+  }
+  .arrows {
+    padding-top: 15px;
+    display: flex;
+    flex-direction: row;
   }
 `;
 
@@ -36,9 +42,13 @@ function CardComponent(props) {
     <CardComponentStyles>
       <div className="quote">
         <caption>{props.type}</caption>
-        <hr style={{ color: "#D9E0E7", height: "1", width: "92px" }}></hr>
+        <hr style={{ color: "#D9E0E7", height: "1", width: "154px" }}></hr>
       </div>
       <subheading>{props.content}</subheading>
+      <div className="arrows">
+        <LeftArrowBlue></LeftArrowBlue>
+        <RightArrowBlue></RightArrowBlue>
+      </div>
     </CardComponentStyles>
   );
 }
