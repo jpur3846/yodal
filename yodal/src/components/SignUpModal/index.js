@@ -11,7 +11,7 @@ import AvatarSelect from "./AvatarSelect";
 import { useAuth } from "../../context/AuthContext";
 
 const SignUpModalStyles = styled.div`
-  display: ${props => (props.show ? "flex" : "none")};
+  display: ${(props) => (props.show ? "flex" : "none")};
 
   .modal-outer {
     position: absolute;
