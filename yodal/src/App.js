@@ -13,18 +13,25 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
+    <>
+    <NavBar />
     <Container fluid className="px-sm-5 px-3" style={{ height: '100vh' }}>
-      <NavBar />
       <Router>
           <Switch>
             <Route path="/">
-              <p>We are home</p>
-              <h1>TESTING</h1>
+              <p>Landing Page</p>
+            </Route>
+            <Route path="/signup">
+              <p>Sign up</p>
+            </Route>
+            <Route path="/home">
+              <p>Home page</p>
             </Route>
           </Switch>
-      </Router>
-      <Footer />
+        </Router>
     </Container>
+    <Footer />
+    </>
   );
 }
 

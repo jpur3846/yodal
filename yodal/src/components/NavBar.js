@@ -3,9 +3,15 @@ import MainButton from '../components/buttons';
 
 import logo from '../static/imgs/logo.png';
 
-const NavBar = ({}) => {
+const NavBar = ({ signedIn }) => {
     return (
-        <Row style={{ height: '80px' }} className="d-flex align-items-center">
+        <Row 
+            style={{ 
+                height: '80px',
+                boxShadow: '0px 4px 63px -22px'
+            }} 
+            className="d-flex align-items-center px-sm-5 px-3"
+        >
             <Col xs={6} lg={3} className="justify-content-start align-items-center">
                 <img src={logo} alt="Yodal Logo" height="40px" width="auto" />
             </Col>
