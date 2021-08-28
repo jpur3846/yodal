@@ -2,30 +2,29 @@ import React from "react";
 import styled from "styled-components";
 
 const TitleLabelStyle = styled.label`
-  /* Auto Layout */
+  
+  padding: 7px 10px;
+  
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
-  padding: 7px 10px;
+  align-items: flex-start:
 
-  width: 240.05px;
-  height: 32px;
-  left: calc(50% - 240.05px / 2);
-  top: 0px;
+  box-shadow: 0px 1px 2px rgba(43, 71, 139, 0.15),
+    0px 7px 15px 3px rgba(19, 65, 105, 0.04);
 
-  font-family: SF Pro Display;
+
   font-style: normal;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 12px;
-  line-height: 150%;
+  line-height: 18px;
 
   color: #ffffff;
   background: #134169;
-  border-radius: 10px;
+  border-radius: 5px;
 `;
 
 function TitleLabel(props) {
-  return <TitleLabelStyle>3-2-1 of the Week</TitleLabelStyle>;
+  return <TitleLabelStyle>{props.text}</TitleLabelStyle>;
 }
 
 export default TitleLabel;
