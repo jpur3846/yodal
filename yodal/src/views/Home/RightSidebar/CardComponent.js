@@ -2,74 +2,43 @@ import React from "react";
 import styled from "styled-components";
 
 const CardComponentStyles = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 15px 20px 15px 15px;
-
-  position: static;
-  width: 240px;
-  height: 153px;
-  left: calc(50% - 240px / 2 - 0.02px);
-  top: 42px;
-
   background: #ffffff;
   box-shadow: 0px 1px 2px rgba(43, 71, 139, 0.15),
     0px 7px 15px 3px rgba(19, 65, 105, 0.04);
   border-radius: 10px;
 
-  flex: none;
-  order: 1;
-  flex-grow: 0;
-`;
+  padding: 15px;
+  width: 240px;
 
-const Quote = styled.p`
-  position: relative;
-  width: 106px;
-  height: 16px;
-  left: 0px;
-  top: 0px;
+  subheading {
+    font-family: SF Pro Display;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 125%;
+    color: #134169;
+  }
 
-  /* Body Text */
-  font-family: SF Pro Text;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 135%;
-  /* or 16px */
+  caption {
+    padding-right: 8px;
+  }
 
-  color: #000000;
-`;
-
-const Content = styled.p`
-  position: static;
-  width: 205.05px;
-  height: 161px;
-  left: 15px;
-  top: 42px;
-
-  /* Subheading */
-  font-family: SF Pro Display;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 125%;
-  /* or 22px */
-
-  color: #134169;
-
-  /* Inside Auto Layout */
-  flex: none;
-  order: 1;
-  align-self: stretch;
-  flex-grow: 0;
+  .quote {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: 12px;
+  }
 `;
 
 function CardComponent(props) {
   return (
     <CardComponentStyles>
-      <Quote>{props.type}</Quote>
-      <Content>{props.content}</Content>
+      <div className="quote">
+        <caption>{props.type}</caption>
+        <hr style={{ color: "#D9E0E7", height: "1", width: "92px" }}></hr>
+      </div>
+      <subheading>{props.content}</subheading>
     </CardComponentStyles>
   );
 }

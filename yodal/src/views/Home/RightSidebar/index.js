@@ -11,8 +11,10 @@ function RightSidebar() {
   return (
     <RightSidebarStyles>
       <CardComponent
-        type={"Quote"}
-        content={"You miss 100% of the shots you don't take..."}
+        type={"Quote of the week"}
+        content={
+          "I found networking was the best way to landing my first internship. It makes it easier to stick out of the crowd because you’re taking the intiaitve to be different."
+        }
       ></CardComponent>
       <PostMemoButton>Post a Memo</PostMemoButton>
     </RightSidebarStyles>
