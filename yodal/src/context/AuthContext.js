@@ -12,6 +12,7 @@ export const useAuth = () => {
   return context;
 };
 
+// TODO: change defaults later!
 export const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState({
     isAuthenticated: true,

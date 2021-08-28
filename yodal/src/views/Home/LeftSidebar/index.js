@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useSectionContext } from "../../../context/SectionContext";
 import Tab from "./Tab";
 
 const LeftSidebarStyles = styled.div`
@@ -13,25 +14,25 @@ const LeftSidebarStyles = styled.div`
 `;
 
 function LeftSidebar() {
-  const [activeTab, setActiveTab] = React.useState("0");
+  const { section, setSection } = useSectionContext();
   return (
     <LeftSidebarStyles>
-      <Tab active={activeTab === "0"} onClick={() => setActiveTab("0")}>
+      <Tab active={section === 0} onClick={() => setSection(0)}>
         Explore
       </Tab>
-      <Tab active={activeTab === "1"} onClick={() => setActiveTab("1")}>
+      <Tab active={section === 1} onClick={() => setSection(1)}>
         Caring
       </Tab>
-      <Tab active={activeTab === "2"} onClick={() => setActiveTab("2")}>
+      <Tab active={section === 2} onClick={() => setSection(2)}>
         Motivational
       </Tab>
-      <Tab active={activeTab === "3"} onClick={() => setActiveTab("3")}>
+      <Tab active={section === 3} onClick={() => setSection(3)}>
         Relationships
       </Tab>
-      <Tab active={activeTab === "4"} onClick={() => setActiveTab("4")}>
+      <Tab active={section === 4} onClick={() => setSection(4)}>
         2am Thoughts
       </Tab>
-      <Tab active={activeTab === "5"} onClick={() => setActiveTab("5")}>
+      <Tab active={section === 5} onClick={() => setSection(5)}>
         My Memos
       </Tab>
     </LeftSidebarStyles>

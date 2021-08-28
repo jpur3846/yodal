@@ -14,31 +14,31 @@ import {
   Title,
 } from "./style";
 
-function Post() {
+function Post({ post }) {
   return (
     <PostStyles>
       <Title>
         <ProfilePhoto src={avatar}></ProfilePhoto>
-        <h4>Wilson Hou</h4>
-        <h5>posted a memo • 10 minutes ago</h5>
+        <h4>{post.name}</h4>
+        <h5>posted a memo • {post.time_since_posted}</h5>
         <button className="play">
           <PlayButton></PlayButton>
         </button>
       </Title>
-      <Content>Hi there! I found networking was pretty amazing.</Content>
+      <Content>{post.message}</Content>
       <Divider></Divider>
       <Socials>
         <Pair>
           <button>
             <Heart></Heart>
           </button>
-          <p>134</p>
+          <p>{post.likes}</p>
         </Pair>
         <Pair className="second">
           <button>
             <Message></Message>
           </button>
-          <p>24</p>
+          <p>{post.comments}</p>
         </Pair>
       </Socials>
     </PostStyles>

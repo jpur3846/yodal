@@ -6,7 +6,6 @@ import RecordButton from "../../../components/Play/RecordButton";
 import profilepic from "../../../static/imgs/profile_photo.png";
 import Divider from "../../../components/shared/Divider";
 import { ButtonLarge, ButtonMedium } from "../../../components/shared/Button";
-import { Button } from "@material-ui/core";
 
 const CreatePostStyles = styled.div`
   grid-column: 3/13;
