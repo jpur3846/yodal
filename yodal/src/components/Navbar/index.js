@@ -53,8 +53,8 @@ const NavBarStyles = styled.nav`
 `;
 
 const NavBar = () => {
-  const { auth } = useAuth();
-  return !auth.isAuthenticated ? (
+  const { currentUser } = useAuth();
+  return !currentUser ? (
     <NavBarStyles>
       <div className="container">
         <Logo></Logo>
@@ -70,7 +70,7 @@ const NavBar = () => {
         <Logo></Logo>
         <div className="profile">
           <Profile_Photo></Profile_Photo>
-          <p>{auth.user.name}</p>
+          <p>Raghav Ramanathan</p>
           <Arrow></Arrow>
         </div>
       </div>

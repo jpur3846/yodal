@@ -11,7 +11,7 @@ import AvatarSelect from "./AvatarSelect";
 import { useAuth } from "../../context/AuthContext";
 
 const SignUpModalStyles = styled.div`
-  display: ${(props) => (props.show ? "flex" : "none")};
+  display: ${props => (props.show ? "flex" : "none")};
 
   .modal-outer {
     position: absolute;
@@ -117,7 +117,7 @@ const PageTwo = ({ setPage }) => {
 };
 
 const PageThree = ({ setPage }) => {
-  const { setAuth } = useAuth();
+  const { signup } = useAuth();
 
   return (
     <div className="modal-outer">
@@ -137,11 +137,7 @@ const PageThree = ({ setPage }) => {
         <h5>Add a short bio</h5>
         <InputStyles className="sep" />
         <Link to={{ pathname: "/home" }}>
-          <ButtonLarge
-            onClick={() =>
-              setAuth({ isAuthenticated: true, user: { name: "Wilson Hou" } })
-            }
-          >
+          <ButtonLarge onClick={() => signup("wilshou@gmail.com", "password")}>
             Finish!
           </ButtonLarge>
         </Link>
