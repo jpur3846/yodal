@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import RightArrowBlue from "./RightArrowBlue";
 import LeftArrowBlue from "./LeftArrowBlue";
+import circle from "../../../static/imgs/New_Quote_Circle.png";
 
 const CardComponentStyles = styled.div`
   background: #ffffff;
@@ -15,8 +16,8 @@ const CardComponentStyles = styled.div`
     font-family: SF Pro Display;
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
-    line-height: 16px;
+    font-size: 16px;
+    line-height: 20px;
     color: #134169;
   }
 
@@ -34,20 +35,39 @@ const CardComponentStyles = styled.div`
     padding-top: 15px;
     display: flex;
     flex-direction: row;
+    cursor: pointer;
   }
 `;
 
+const fetchQuotes = (setQuoteText) => {
+  fetch("https://type.fit/api/quotes")
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      setQuoteText(data[Math.floor(Math.random() * (1000 - 0) + 0)].text);
+    });
+};
+
 function CardComponent(props) {
+  const [quoteText, setQuoteText] = React.useState();
+  useEffect(() => {
+    fetchQuotes(setQuoteText);
+  }, []);
   return (
     <CardComponentStyles>
       <div className="quote">
         <caption>{props.type}</caption>
         <hr style={{ color: "#D9E0E7", height: "1", width: "154px" }}></hr>
       </div>
-      <subheading>{props.content}</subheading>
+      <subheading>{quoteText}</subheading>
       <div className="arrows">
-        <LeftArrowBlue></LeftArrowBlue>
-        <RightArrowBlue></RightArrowBlue>
+        <img
+          src={circle}
+          alt="logo"
+          style={{ width: "22px" }}
+          onClick={() => fetchQuotes(setQuoteText)}
+        ></img>
       </div>
     </CardComponentStyles>
   );
