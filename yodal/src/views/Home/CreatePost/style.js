@@ -46,4 +46,10 @@ export const Controls = styled.div`
     margin-left: 1rem;
     color: #091e42;
   }
+  input[type="checkbox"] {
+    background: rgba(255, 255, 255, 0.0001);
+  }
+  input:checked {
+    background: #0052cc;
+  }
 `;
